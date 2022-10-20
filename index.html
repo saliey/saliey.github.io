@@ -145,6 +145,80 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/20/iOS-ollvm-%E6%9C%AC%E5%9C%B0%E6%90%AD%E5%BB%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/10/20/iOS-ollvm-%E6%9C%AC%E5%9C%B0%E6%90%AD%E5%BB%BA/" class="post-title-link" itemprop="url">iOS ollvm 本地搭建</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-10-20 22:39:31 / Modified: 22:52:23" itemprop="dateCreated datePublished" datetime="2022-10-20T22:39:31+08:00">2022-10-20</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>参考链接：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/0x3f97/ollvm-12.x">https://github.com/0x3f97/ollvm-12.x</a><br><a target="_blank" rel="noopener" href="https://github.com/kk-laoguo/ollvm-13">https://github.com/kk-laoguo/ollvm-13</a><br><a target="_blank" rel="noopener" href="https://github.com/heroims/obfuscator/tree/llvm-13.x/llvm">https://github.com/heroims/obfuscator/tree/llvm-13.x/llvm</a><br><a target="_blank" rel="noopener" href="https://heroims.github.io/2022/04/09/OLLVM%E4%BB%A3%E7%A0%81%E6%B7%B7%E6%B7%86%E7%A7%BB%E6%A4%8D%E4%B8%8E%E4%BD%BF%E7%94%A8(%E5%86%8D%E7%BB%AD)/">https://heroims.github.io/2022/04/09/OLLVM%E4%BB%A3%E7%A0%81%E6%B7%B7%E6%B7%86%E7%A7%BB%E6%A4%8D%E4%B8%8E%E4%BD%BF%E7%94%A8(%E5%86%8D%E7%BB%AD)/</a><br><a target="_blank" rel="noopener" href="https://heroims.github.io/2021/11/09/OLLVM%E4%BB%A3%E7%A0%81%E6%B7%B7%E6%B7%86%E7%A7%BB%E6%A4%8D%E4%B8%8E%E4%BD%BF%E7%94%A8(%E7%BB%AD)/">https://heroims.github.io/2021/11/09/OLLVM%E4%BB%A3%E7%A0%81%E6%B7%B7%E6%B7%86%E7%A7%BB%E6%A4%8D%E4%B8%8E%E4%BD%BF%E7%94%A8(%E7%BB%AD)/</a></p>
+<p>在 macos 上搭建 xcode ollvm 环境，版本 13.0.1</p>
+<p>步骤：</p>
+<h2 id="1-下载"><a href="#1-下载" class="headerlink" title="1 下载"></a>1 下载</h2><p>下载 llvm 源码，<a target="_blank" rel="noopener" href="https://github.com/heroims/obfuscator/tree/llvm-13.x">https://github.com/heroims/obfuscator/tree/llvm-13.x</a></p>
+<h2 id="2-编译"><a href="#2-编译" class="headerlink" title="2 编译"></a>2 编译</h2><p>项目内作者已经做好了移植，直接变异就 ok</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cd llvm-project-13</span><br><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake -DLLVM_ENABLE_NEW_PASS_MANAGER=OFF -DCMAKE_BUILD_TYPE=Release -DLLVM_CREATE_XCODE_TOOLCHAIN=ON -DLLVM_ENABLE_PROJECTS=&quot;clang;libcxx;libcxxabi&quot;  ../llvm</span><br><span class="line">make -j12</span><br><span class="line">// toolcchains</span><br><span class="line">sudo make install-xcode-toolchain</span><br><span class="line">mv /usr/local/Toolchains  ~/Library/Developer/Toolchains</span><br></pre></td></tr></table></figure>
+
+<p>llvm 13 增加了 NEW PM ，这里要给屏蔽掉；<br>-DLLVM_ENABLE_NEW_PASS_MANAGER&#x3D;OFF </p>
+<p>还有说 -DLLVM_USE_NEWPM&#x3D;OFF 这个给屏蔽的，还没试</p>
+<h2 id="3-混淆命令"><a href="#3-混淆命令" class="headerlink" title="3 混淆命令"></a>3 混淆命令</h2><p>-mllvm -bcf -mllvm -sub -mllvm -fla -mllvm -sobf -mllvm -split<br>-mllvm -bcf -mllvm -bcf_loop&#x3D;4 -mllvm -bcf_prob&#x3D;100 -mllvm -sub -mllvm -sub_loop&#x3D;2 -mllvm -fla -mllvm -sobf -mllvm -split</p>
+<img src="/2022/10/20/iOS-ollvm-%E6%9C%AC%E5%9C%B0%E6%90%AD%E5%BB%BA/p1.png" class="" title="asset">
+<img src="/2022/10/20/iOS-ollvm-%E6%9C%AC%E5%9C%B0%E6%90%AD%E5%BB%BA/p2.png" class="" title="asset">
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/28/HornorV30-log/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -757,7 +831,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

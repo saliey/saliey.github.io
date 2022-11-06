@@ -145,6 +145,72 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/06/vultr%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/06/vultr%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/" class="post-title-link" itemprop="url">vultr服务搭建</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-11-06 11:27:26 / Modified: 11:49:45" itemprop="dateCreated datePublished" datetime="2022-11-06T11:27:26+08:00">2022-11-06</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>官网购买服务<br><a target="_blank" rel="noopener" href="https://www.vultr.com/">https://www.vultr.com/</a></p>
+<p>ssh 进入服务器：<br>.# apt-get install redir<br>.# sudo iptables -A INPUT -p tcp –dport 443 -j ACCEPT<br>.# sudo redir :443 1.1.1.1:443</p>
+<p>然后在 vultr 的后台打开防火墙的端口：<br>Firewall -&gt; new -&gt; 打开对应端口</p>
+<p>然后远端就实现了端口数据转发；</p>
+<p>yum 内安装 redir</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/etc/yum.repos.d/nux-misc.repo</span><br><span class="line">[nux-misc]</span><br><span class="line">name=Nux Misc</span><br><span class="line">baseurl=http://li.nux.ro/download/nux/misc/el7/x86_64/</span><br><span class="line">enabled=0</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">yum --enablerepo=nux-misc install redir -y</span><br></pre></td></tr></table></figure>
+
+<p>不过这个是老版本，应该下载源码，然后自编译安装</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/20/iOS-ollvm-%E6%9C%AC%E5%9C%B0%E6%90%AD%E5%BB%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -831,7 +897,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

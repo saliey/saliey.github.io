@@ -145,6 +145,86 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/20/iOS-sdk%E6%A8%A1%E5%9D%97%E5%BC%80%E5%8F%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/20/iOS-sdk%E6%A8%A1%E5%9D%97%E5%BC%80%E5%8F%91/" class="post-title-link" itemprop="url">iOS_sdk模块开发</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-11-20 19:45:08 / Modified: 20:27:10" itemprop="dateCreated datePublished" datetime="2022-11-20T19:45:08+08:00">2022-11-20</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>参考 <a target="_blank" rel="noopener" href="https://juejin.cn/post/7076353544638922759">https://juejin.cn/post/7076353544638922759</a></p>
+<ol>
+<li>创建 workspace </li>
+<li>打开 workspace 然后创建 framework project</li>
+<li>注意 添加 add to &#x2F; group </li>
+<li>新建工具类文件，</li>
+<li>build 直接拖进去，编译调用</li>
+</ol>
+<p>1.”___isPlatformVersionAtLeast”, referenced from:</p>
+<ol start="2">
+<li>unknown argument: ‘-index-store-path’<br> 分析：由于从Xcode 9.0开始将-index-store-path参数添加到构建命令中。而infer所依赖的clang还不支持此参数。在项目Build Setting中搜索index并将Enable Index-While-Building Functionality选项设置为NO</li>
+</ol>
+<p>-mllvm -bcf -mllvm -sub -mllvm -fla -mllvm -sobf -mllvm -split </p>
+<ol start="3">
+<li>ld: Assertion failed: (atom-&gt;fixupCount() &#x3D;&#x3D; 1), function targetCString, file macho_relocatable_file.cpp, line 6665.<br>clang-13: error: linker command failed with exit code 1 (use -v to see invocation)</li>
+</ol>
+<p>$(ARCHS_STANDARD)</p>
+<p>Assertion failed: (atom-&gt;fixupCount() &#x3D;&#x3D; 1), function targetCString, file macho_relocatable_file.cpp,</p>
+<p>*** Terminating app due to uncaught exception ‘NSInvalidArgumentException’, reason: ‘-unrecognized selector sent to instance 0x280eecdc0’<br>terminating with uncaught exception of type NSException</p>
+<p>2022-11-18 18:46:58.158553+0800 demo[6211:489172]  unrecognized selector sent to instance 0x2835b5520<br>2022-11-18 18:46:58.159173+0800 demo[6211:489172] *** Terminating app due to uncaught exception ‘NSInvalidArgumentException’, reason: ‘-: unrecognized selector sent to instance 0x2835b5520’<br>*** First throw call stack:<br>(0x18218b128 0x195e9e480 0x18209a138 0x18218d784 0x18218f9ac 0x1048b3278 0x184a27f2c 0x1843b8408 0x1843b8748 0x1843b7098 0x184a62564 0x184a63e4c 0x184a3fa78 0x184ac2e54 0x184ac7678 0x184abe964 0x18210a780 0x18210a680 0x1821099d4 0x182103ef0 0x1821036a8 0x1987b3570 0x184a21370 0x184a268ec 0x1048b3580 0x181de2140)<br>libc++abi: terminating with uncaught exception of type NSException<br>*** Terminating app due to uncaught exception ‘NSInvalidArgumentException’, reason: ‘-unrecognized selector sent to instance 0x2835b5520’<br>terminating with uncaught exception of type NSException</p>
+<p>eGF7SUg0BvarK6IdY+4C1ozxWz0iUmr1jefPaBhht&#x2F;Z&#x2F;ygJC7THzk0XJYgBHthvqMzFYS8&#x2F;62bbbBWMTc0p&#x2F;RGBm34OBG0ki7NntbikngZfNNVSVd82Yf9dM+pTz5jeDAXuK0cq8RfXH&#x2F;TZSYJygriVQAnvTlK2jp2yXv1l3Tv8Pq4qXHSQZgxTBsdOraVqSAlgmqyJN64qTSK2cLSeZH6MhDQNWbK6ko0ziRUNLerISA5F0+KscHQnsnjpf18NGGSPWZaPptOJOLByPdbde5vPv6Yvfw7N&#x2F;WT&#x2F;Q+6hRKz1z+HJfaEOVsjv&#x2F;ua4v3fWFq6d&#x2F;qvrOAT4uW4MEqfqqWA&#x3D;&#x3D;<br>YqCI3zHcLqeo7YCVvFD48sGqXB7VrK235TDO++1GlB5T3Sf9&#x2F;gqt2B9hAHa2uU88yptWPgVnFN9YrU4x6mex57w5EIrkTBg5ufirAG2+ZyLmBnvJ27vWd0bDYtDw85M0ph13yQoCfG0+Rg&#x2F;Wn5F73gQJLU4kprDnXg71TtM7CFJsTpNPa1blFH8azx2xF7JwrIhR1iFHUNVWaPAvQGVo5ehDml&#x2F;bzev2x0irHeV14vfBIYZ+HzORrVtdDRqJs70U2N2FKO8STDG0aipo7O&#x2F;y8vzjY+5jNXup+a7N0rCCnP2ih&#x2F;1zwEW8FDU1+bdw5IGLa8KNEKpC5&#x2F;zxMRT5YX4f8w&#x3D;&#x3D;</p>
+<p>unrecognized selector sent to instance 0x281d31170<br>2022-11-20 17:50:31.397005+0800 app[48900:11261516] *** Terminating app due to uncaught exception ‘NSInvalidArgumentException’, reason: ‘- unrecognized selector sent to instance 0x281d31170’<br>*** First throw call stack:<br>(0x189909114 0x19d12fcb4 0x1898199b8 0x18990b758 0x18990d6cc 0x100cbb538 0x18ba86adc 0x18ba8b130 0x18ba8b510 0x18c1864b0 0x18c185cc4 0x18c186b58 0x18c1977b0 0x18c145d7c 0x18c14bcac 0x18b82ac4c 0x18bd4d82c 0x18b82b734 0x18b82b23c 0x18b82b560 0x18b82ae1c 0x18b8329bc 0x18bc670a0 0x18bd6510c 0x18b832754 0x18b6749b4 0x18b673454 0x18b674600 0x18c149e80 0x18bc8d914 0x198187cb4 0x1981af6e0 0x198195410 0x1981af3f4 0x10162d5fc 0x101630ac4 0x1981d44b8 0x1981d4180 0x1981d4654 0x189889240 0x189889140 0x189888488 0x189882a40 0x189882200 0x19f97d598 0x18c148004 0x18c14d5d8 0x10179cfe4 0x100cbbcd4 0x189561598)<br>libc++abi.dylib: terminating with uncaught exception of type NSException<br>*** Terminating app due to uncaught exception ‘NSInvalidArgumentException’, reason: ‘-unrecognized selector sent to instance 0x281d31170’<br>terminating with uncaught exception of type NSException</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/16/%E7%A7%81%E4%BA%BA%E8%BD%AC%E5%8F%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -774,70 +854,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/19/test1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/19/test1/" class="post-title-link" itemprop="url">test1</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2022-07-19 22:46:14 / Modified: 22:54:03" itemprop="dateCreated datePublished" datetime="2022-07-19T22:46:14+08:00">2022-07-19</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><p>正文</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">log(&quot;hello code&quot;);</span><br></pre></td></tr></table></figure>
-
-
-
-<p>GitHub.io 咋没有东西呢？？？</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -907,7 +923,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

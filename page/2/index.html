@@ -145,6 +145,78 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/24/meidapipe%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/07/24/meidapipe%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">meidapipe学习</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-07-24 20:12:53 / Modified: 21:15:54" itemprop="dateCreated datePublished" datetime="2022-07-24T20:12:53+08:00">2022-07-24</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>mdeiapipe 手势动作的分析</p>
+<p>npm install opencv-python<br>npm install mediapipe</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import cv2</span><br><span class="line">import mediapipe as mp</span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line">cap = cv2.VideoCapture(0)</span><br><span class="line"></span><br><span class="line">mpHands = mp.solutions.hands</span><br><span class="line">hands = mpHands.Hands()</span><br><span class="line">mpDraw = mp.solutions.drawing_utils</span><br><span class="line">handLmsStytle = mpDraw.DrawingSpec(color=(128, 128, 128), thickness=5)</span><br><span class="line">handConStytle = mpDraw.DrawingSpec(color=(0, 255, 0), thickness=5)</span><br><span class="line">pTime = 0</span><br><span class="line">cTime = 0</span><br><span class="line"></span><br><span class="line">while True:</span><br><span class="line">    ret, img = cap.read()</span><br><span class="line">    if ret:</span><br><span class="line">        imgRgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)</span><br><span class="line">        result = hands.process(imgRgb)</span><br><span class="line">        #print(result.multi_hand_landmarks)</span><br><span class="line">        imgHeight = img.shape[0]</span><br><span class="line">        imgWeight = img.shape[1]</span><br><span class="line">        if result.multi_hand_landmarks:</span><br><span class="line">            for handLms in result.multi_hand_landmarks:</span><br><span class="line">                mpDraw.draw_landmarks(img, handLms, mpHands.HAND_CONNECTIONS, handLmsStytle, handConStytle)</span><br><span class="line"></span><br><span class="line">                for i, lm in enumerate(handLms.landmark):</span><br><span class="line">                    xPos = int(lm.x * imgWeight)</span><br><span class="line">                    yPos = int(lm.y * imgHeight)</span><br><span class="line">                    #cv2.putText(img, str(i), (xPos-25, yPos+5), cv2.FONT_HERSHEY_SIMPLEX, 0.4, (255, 0, 0))</span><br><span class="line">                    #print(i, lm.x, lm.y)</span><br><span class="line">                    if i == 4:</span><br><span class="line">                        cv2.circle(img, (xPos, yPos), 8, (0, 0, 255), cv2.FILLED)</span><br><span class="line">                    print(i, xPos, yPos)</span><br><span class="line"></span><br><span class="line">        cTime = time.time()</span><br><span class="line">        fps = 1 / (cTime - pTime)</span><br><span class="line">        pTime = cTime</span><br><span class="line">        cv2.putText(img, f&quot;FPS: &#123;int(fps)&#125;&quot;, (30,50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 3)</span><br><span class="line"></span><br><span class="line">        cv2.imshow(&#x27;img&#x27;, img)</span><br><span class="line"></span><br><span class="line">    if cv2.waitKey(1) == ord(&#x27;q&#x27;):</span><br><span class="line">        break</span><br></pre></td></tr></table></figure>
+
+
+
+<p>参考 </p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1GR4y1W7KS?spm_id_from=333.337.search-card.all.click&amp;vd_source=a50d08a54e8923cd1f19495e18ecb371">https://www.bilibili.com/video/BV1GR4y1W7KS?spm_id_from=333.337.search-card.all.click&amp;vd_source=a50d08a54e8923cd1f19495e18ecb371</a></p>
+</blockquote>
+<p>一个手势的学习；试了下都没跑起来</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.computervision.zone/lessons/project-1-gesture-volume-control/">https://www.computervision.zone/lessons/project-1-gesture-volume-control/</a></p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/19/test1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -344,7 +416,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

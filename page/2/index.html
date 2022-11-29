@@ -145,6 +145,94 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/27/iOS%E8%84%B1%E5%A3%B3%E5%B7%A5%E5%85%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/07/27/iOS%E8%84%B1%E5%A3%B3%E5%B7%A5%E5%85%B7/" class="post-title-link" itemprop="url">iOS脱壳工具</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-07-27 22:16:42" itemprop="dateCreated datePublished" datetime="2022-07-27T22:16:42+08:00">2022-07-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-08-10 22:00:00" itemprop="dateModified" datetime="2022-08-10T22:00:00+08:00">2022-08-10</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>三个脱壳方法</p>
+<ol>
+<li><p>dumpdecrypted，脚本脱壳</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/stefanesser/dumpdecrypted">https://github.com/stefanesser/dumpdecrypted</a>  编译生成dumpdecrypted.dylib<br>ldid -S dumpdecrypted.dylib ，签名后，然后将 dumpdecrypted.dylib  导入到设备 &#x2F;usr&#x2F;bin&#x2F; 下<br>ps -ax | grep wechat<br>DYLD_INSERT_LIBRARIES&#x3D;&#x2F;usr&#x2F;bin&#x2F;dumpdecrypted.dylib &#x2F;var&#x2F;containers&#x2F;Bundle&#x2F;Application&#x2F;078687D2-EFC7-423B-BCB8-DCF660682107&#x2F;WeChat.app&#x2F;WeChat  这里就脱出了 wechat 在当前路径</p>
+</blockquote>
+</li>
+<li><p>CrackerXI</p>
+<blockquote>
+<p>rackerXI  傻瓜式脱壳，脱后的路径 &#x2F;var&#x2F;mobile&#x2F;Documents&#x2F;CrackerXI<br><a target="_blank" rel="noopener" href="http://cydia.iphonecake.com/">http://cydia.iphonecake.com/</a></p>
+</blockquote>
+</li>
+<li><p>Frida-ios-Dumpx</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/AloneMonkey/frida-ios-dump">https://github.com/AloneMonkey/frida-ios-dump</a><br>.&#x2F;dump.py 微信 -o .&#x2F;t.ipa</p>
+</blockquote>
+</li>
+<li><p>flexdecrypt</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/JohnCoates/flexdecrypt">https://github.com/JohnCoates/flexdecrypt</a><br><a target="_blank" rel="noopener" href="http://www.gandalf.site/2021/06/ios-appstore-app.html">http://www.gandalf.site/2021/06/ios-appstore-app.html</a></p>
+<p>flexdecrypt &#x2F;var&#x2F;containers&#x2F;Bundle&#x2F;Application&#x2F;95C67328-E192-4088-A6F1-F1CA0E518A72&#x2F;a.app&#x2F;a</p>
+</blockquote>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/24/meidapipe%E5%AD%A6%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -416,7 +504,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

@@ -145,6 +145,102 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/30/web%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/11/30/web%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A02/" class="post-title-link" itemprop="url">web知识学习2</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-11-30 21:01:31 / Modified: 21:02:13" itemprop="dateCreated datePublished" datetime="2022-11-30T21:01:31+08:00">2022-11-30</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Html 各元素解释<br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a">https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/a</a></p>
+<p>css 学习<br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS">https://developer.mozilla.org/zh-CN/docs/Learn/CSS</a><br><a target="_blank" rel="noopener" href="https://www.runoob.com/css/css-id-class.html">https://www.runoob.com/css/css-id-class.html</a></p>
+<p>vue 接口解释<br><a target="_blank" rel="noopener" href="https://cn.vuejs.org/api/application.html">https://cn.vuejs.org/api/application.html</a></p>
+<p>html 结构<br><a target="_blank" rel="noopener" href="http://m.w3capi.com/m_doc/chapter/id/236/cid/5.html">http://m.w3capi.com/m_doc/chapter/id/236/cid/5.html</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;utf-8&quot; /&gt;</span><br><span class="line">&lt;title&gt;W3CAPI 在线文档教程&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;h1&gt;我是标题h1&lt;/h1&gt;</span><br><span class="line">&lt;p&gt;我是段落p。&lt;/p&gt;</span><br><span class="line"> </span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>HTML 文档结构实例解析</p>
+<html> 标签：
+<html> 元素定义了整个 HTML 文档。
+这个元素拥有一个开始标签 <html> ，以及一个结束标签 </html>。
+元素内容是另一个 HTML 元素（body 元素）。
+
+<head> 标签
+<head> 元素定义了整个文档的头部，也可以叫做HTML头部。
+这个元素拥有一个开始标签 <head> ，以及一个结束标签 </head>。
+元素内容是两个标签：文档编码声明标签 和 文档标题标签。
+
+<head>的子元素一般有下面七个
+<meta>：设置网页的元数据。
+<link>：连接外部样式表。
+<title>：设置网页标题。
+<style>：放置内嵌的样式表。
+<script>：引入脚本。
+<noscript>：浏览器不支持脚本时，所要显示的内容。
+<base>：设置网页内部相对 URL 的计算基准。
+
+
+<body> 标签：
+<body> 元素定义了 HTML 文档的主体。
+这个元素拥有一个开始标签 <body> 以及一个结束标签 </body>。
+元素内容是另一个 HTML 元素（p 元素）。
+<p> 标签：
+实例中的这个 <p> 元素定义了 HTML 文档中的一个段落。
+这个元素拥有一个开始标签 <p> 以及一个结束标签 </p>。
+元素内容是: 我是段落p。
+
+<script defer src="https://javascript.ijs?speed=1"></script>
+<p>defer dom 加载之前再加载<br>async 喝 dom 同时加载</p>
+<p>顺序	DOMContentLoaded<br>async	加载优先顺序。脚本在文档中的顺序不重要 —— 先加载完成的先执行	不相关。可能在文档加载完成前加载并执行完毕。如果脚本很小或者来自于缓存，同时文档足够长，就会发生这种情况。<br>defer	文档顺序（它们在文档中的顺序）	在文档加载和解析完成之后（如果需要，则会等待），即在 DOMContentLoaded 之前执行。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/29/github%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -168,10 +264,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-11-29 23:41:46 / Modified: 23:42:06" itemprop="dateCreated datePublished" datetime="2022-11-29T23:41:46+08:00">2022-11-29</time>
+              <time title="Created: 2022-11-29 23:41:46" itemprop="dateCreated datePublished" datetime="2022-11-29T23:41:46+08:00">2022-11-29</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-11-30 20:39:48" itemprop="dateModified" datetime="2022-11-30T20:39:48+08:00">2022-11-30</time>
+              </span>
 
           
 
@@ -184,23 +286,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="1-得先确认自己的-git-项目能正常拉取和提交"><a href="#1-得先确认自己的-git-项目能正常拉取和提交" class="headerlink" title="1. 得先确认自己的 git 项目能正常拉取和提交"></a>1. 得先确认自己的 git 项目能正常拉取和提交</h1><p>采用 ssh 的方式 clone<br>git clone <a href="mailto:&#103;&#x69;&#116;&#64;&#103;&#x69;&#x74;&#104;&#x75;&#x62;&#x2e;&#99;&#111;&#109;">&#103;&#x69;&#116;&#64;&#103;&#x69;&#x74;&#104;&#x75;&#x62;&#x2e;&#99;&#111;&#109;</a>:saliey&#x2F;ctest.git<br>vim readme.txt<br>git add ..<br>git commit ..<br>git push </p>
-<h1 id="2-需要配置-ssh-key"><a href="#2-需要配置-ssh-key" class="headerlink" title="2. 需要配置 ssh key"></a>2. 需要配置 ssh key</h1><p>这里需要本地配置 ssh key<br>ssh-keygen -t rsa -C “<a href="mailto:&#x73;&#97;&#x6c;&#x69;&#x65;&#x79;&#x40;&#49;&#54;&#51;&#x2e;&#99;&#111;&#x6d;">&#x73;&#97;&#x6c;&#x69;&#x65;&#x79;&#x40;&#49;&#54;&#51;&#x2e;&#99;&#111;&#x6d;</a>“</p>
+          <h1 id="1-得先确认自己的-git-项目能正常拉取和提交"><a href="#1-得先确认自己的-git-项目能正常拉取和提交" class="headerlink" title="1. 得先确认自己的 git 项目能正常拉取和提交"></a>1. 得先确认自己的 git 项目能正常拉取和提交</h1><p>采用 ssh 的方式 clone<br>git clone <a href="mailto:&#x67;&#105;&#116;&#x40;&#x67;&#105;&#x74;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#x6d;">&#x67;&#105;&#116;&#x40;&#x67;&#105;&#x74;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#x6d;</a>:saliey&#x2F;ctest.git<br>vim readme.txt<br>git add ..<br>git commit ..<br>git push </p>
+<h1 id="2-需要配置-ssh-key"><a href="#2-需要配置-ssh-key" class="headerlink" title="2. 需要配置 ssh key"></a>2. 需要配置 ssh key</h1><p>这里需要本地配置 ssh key<br>ssh-keygen -t rsa -C “<a href="mailto:&#x73;&#x73;&#115;&#x40;&#101;&#109;&#97;&#105;&#108;&#x2e;&#x63;&#111;&#x6d;">&#x73;&#x73;&#115;&#x40;&#101;&#109;&#97;&#105;&#108;&#x2e;&#x63;&#111;&#x6d;</a>“</p>
 <p>将 id_rsa.pub 的内容拷贝到 github 的后台；</p>
 <h1 id="3-hexo-的搭建"><a href="#3-hexo-的搭建" class="headerlink" title="3. hexo 的搭建"></a>3. hexo 的搭建</h1><p>mkdir newFloder<br>npm install -g hexo-cli<br>npm install -g hexo<br>hexo init<br>npm install<br>hexo g<br>hexo s  这里就可以验证是否安装成功</p>
-<p>然后配置 _config.yml 文件<br>deploy:<br>  type: ‘git’<br>  repo: <a href="mailto:&#x67;&#105;&#116;&#x40;&#103;&#x69;&#116;&#104;&#x75;&#x62;&#46;&#x63;&#x6f;&#109;">&#x67;&#105;&#116;&#x40;&#103;&#x69;&#116;&#104;&#x75;&#x62;&#46;&#x63;&#x6f;&#109;</a>:saliey&#x2F;saliey.github.io.git<br>  branch: main</p>
+<p>然后配置 _config.yml 文件<br>deploy:<br>  type: ‘git’<br>  repo: <a href="mailto:&#x67;&#105;&#116;&#64;&#x67;&#x69;&#116;&#x68;&#x75;&#98;&#46;&#x63;&#x6f;&#109;">&#x67;&#105;&#116;&#64;&#x67;&#x69;&#116;&#x68;&#x75;&#98;&#46;&#x63;&#x6f;&#109;</a>:saliey&#x2F;saliey.github.io.git<br>  branch: main</p>
 <p>然后 npm install hexo-deployer-git –save</p>
 <p>最后<br>hexo g<br>hexo d  部署</p>
-<h1 id="4-干扰的事情"><a href="#4-干扰的事情" class="headerlink" title="4. 干扰的事情"></a>4. 干扰的事情</h1><p>后台的 token 未设置限制时间；token 是 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</p>
+<h1 id="4-干扰的事情"><a href="#4-干扰的事情" class="headerlink" title="4. 干扰的事情"></a>4. 干扰的事情</h1><p>后台的 token 未设置限制时间；token 是 xxx</p>
 <p>且 ssh 已经添加了三个，对应本季 .ssh&#x2F;id_rsa.pub   .ssh&#x2F;pub_github.pub 和一个已经删除的；</p>
 <h1 id="5-hexo-发布文章"><a href="#5-hexo-发布文章" class="headerlink" title="5. hexo 发布文章"></a>5. hexo 发布文章</h1><p>hexo new test<br>然后编写文章，<br>hexo g<br>hexo d 就发布了；</p>
 <h1 id="6-参考"><a href="#6-参考" class="headerlink" title="6. 参考"></a>6. 参考</h1><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/75438236">https://zhuanlan.zhihu.com/p/75438236</a><br><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000038619366">https://segmentfault.com/a/1190000038619366</a></p>
 <h1 id="7-更新主题"><a href="#7-更新主题" class="headerlink" title="7. 更新主题"></a>7. 更新主题</h1><p>_config.yml<br>theme: landscape -&gt; next</p>
-<p>mkdir themes&#x2F;next<br>git clone <a href="mailto:&#x67;&#x69;&#116;&#x40;&#103;&#105;&#116;&#104;&#117;&#x62;&#x2e;&#99;&#x6f;&#109;">&#x67;&#x69;&#116;&#x40;&#103;&#105;&#116;&#104;&#117;&#x62;&#x2e;&#99;&#x6f;&#109;</a>:theme-next&#x2F;hexo-theme-next.git themes&#x2F;next<br>hexo clean<br>hexo g<br>hexo d 到此就把主题更新了。</p>
+<p>mkdir themes&#x2F;next<br>git clone <a href="mailto:&#x67;&#x69;&#x74;&#64;&#x67;&#x69;&#116;&#104;&#x75;&#98;&#x2e;&#x63;&#x6f;&#x6d;">&#x67;&#x69;&#x74;&#64;&#x67;&#x69;&#116;&#104;&#x75;&#98;&#x2e;&#x63;&#x6f;&#x6d;</a>:theme-next&#x2F;hexo-theme-next.git themes&#x2F;next<br>hexo clean<br>hexo g<br>hexo d 到此就把主题更新了。</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/iissnan/hexo-theme-next">https://github.com/iissnan/hexo-theme-next</a><br><a target="_blank" rel="noopener" href="https://github.com/theme-next/hexo-theme-next">https://github.com/theme-next/hexo-theme-next</a></p>
 <h1 id="8-插入图片"><a href="#8-插入图片" class="headerlink" title="8. 插入图片"></a>8. 插入图片</h1><p>hexo 插入图片的方法：</p>
-
-
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_img pic.png asset %&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -809,63 +910,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/31/myPicTest/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/31/myPicTest/" class="post-title-link" itemprop="url">myPicTest</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-07-31 16:47:55" itemprop="dateCreated datePublished" datetime="2022-07-31T16:47:55+08:00">2022-07-31</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -935,7 +979,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

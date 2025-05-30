@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="https://saliey.github.io/2025/05/23/ollvm-混淆指令解释/"/>
+  <link rel="canonical" href="https://saliey.github.io/2025/05/30/最新的-ai-产品对比/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://unpkg.com'>
@@ -33,19 +33,19 @@
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>ollvm 混淆指令解释 - say_lie</title>
+  <title>最新的 ai 产品对比 - say_lie</title>
   <meta name="keywords" content="null">
   <meta desc name="description" content="say_lie - nop - say_lie">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="ollvm 混淆指令解释">
-<meta property="og:url" content="https://saliey.github.io/2025/05/23/ollvm-%E6%B7%B7%E6%B7%86%E6%8C%87%E4%BB%A4%E8%A7%A3%E9%87%8A/index.html">
+<meta property="og:title" content="最新的 ai 产品对比">
+<meta property="og:url" content="https://saliey.github.io/2025/05/30/%E6%9C%80%E6%96%B0%E7%9A%84-ai-%E4%BA%A7%E5%93%81%E5%AF%B9%E6%AF%94/index.html">
 <meta property="og:site_name" content="say_lie">
-<meta property="og:description" content="通过分析源代码，我来详细列举所有支持的参数设置： 完整参数列表1. BCF (Bogus Control Flow) 参数123456789101112&#x2F;&#x2F; 在 BogusControlFlow.cpp 中定义static cl::opt&lt;int&gt; ObfProbRate(&quot;bcf_prob&quot;,     cl::desc(&quot;Choose the proba">
+<meta property="og:description" content="关键要点 AI领域发展迅速，2025年各领域有明确领先者，但竞争激烈，技术更新快。 代码领域：GitHub Copilot、Cursor和Amazon Q Developer表现突出，助力开发效率。 聊天领域：ChatGPT、Claude和Microsoft Copilot在对话和企业应用中领先。 视频领域：Synthesia、Runway和Pika在AI视频生成中表现优异，适合不同场景。 工程&amp;">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2025-05-23T02:23:50.000Z">
-<meta property="article:modified_time" content="2025-05-23T02:24:09.399Z">
+<meta property="article:published_time" content="2025-05-30T07:23:44.000Z">
+<meta property="article:modified_time" content="2025-05-30T07:24:02.651Z">
 <meta property="article:author" content="nop">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
@@ -2517,7 +2517,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class=''>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="https://saliey.github.io/2025/05/23/ollvm-混淆指令解释/">
+  <link itemprop="mainEntityOfPage" href="https://saliey.github.io/2025/05/30/最新的-ai-产品对比/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="say_lie">
   </span>
@@ -2538,7 +2538,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        ollvm 混淆指令解释
+        最新的 ai 产品对比
       </h1>
       <div class='new-meta-box'>
         
@@ -2559,10 +2559,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2025-05-23T10:23:50+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2025-05-30T15:23:44+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：May 23, 2025</p>
+    <p>发布于：May 30, 2025</p>
   </a>
 </div>
 
@@ -2585,119 +2585,197 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>通过分析源代码，我来详细列举所有支持的参数设置：</p>
-<h2 id="完整参数列表"><a href="#完整参数列表" class="headerlink" title="完整参数列表"></a>完整参数列表</h2><h3 id="1-BCF-Bogus-Control-Flow-参数"><a href="#1-BCF-Bogus-Control-Flow-参数" class="headerlink" title="1. BCF (Bogus Control Flow) 参数"></a>1. <strong>BCF (Bogus Control Flow) 参数</strong></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在 BogusControlFlow.cpp 中定义</span></span><br><span class="line"><span class="function"><span class="type">static</span> cl::opt&lt;<span class="type">int</span>&gt; <span class="title">ObfProbRate</span><span class="params">(<span class="string">&quot;bcf_prob&quot;</span>, </span></span></span><br><span class="line"><span class="params"><span class="function">    cl::desc(<span class="string">&quot;Choose the probability [%] each basic blocks will be obfuscated by the -bcf pass&quot;</span>),</span></span></span><br><span class="line"><span class="params"><span class="function">    cl::value_desc(<span class="string">&quot;probability rate&quot;</span>), </span></span></span><br><span class="line"><span class="params"><span class="function">    cl::init(defaultObfRate),  <span class="comment">// 默认30</span></span></span></span><br><span class="line"><span class="params"><span class="function">    cl::Optional)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">static</span> cl::opt&lt;<span class="type">int</span>&gt; <span class="title">ObfTimes</span><span class="params">(<span class="string">&quot;bcf_loop&quot;</span>,</span></span></span><br><span class="line"><span class="params"><span class="function">    cl::desc(<span class="string">&quot;Choose how many time the -bcf pass loop on a function&quot;</span>),</span></span></span><br><span class="line"><span class="params"><span class="function">    cl::value_desc(<span class="string">&quot;number of times&quot;</span>), </span></span></span><br><span class="line"><span class="params"><span class="function">    cl::init(defaultObfTime),  <span class="comment">// 默认1</span></span></span></span><br><span class="line"><span class="params"><span class="function">    cl::Optional)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p><strong>使用方法</strong>:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-mllvm -bcf -mllvm -bcf_prob=60 -mllvm -bcf_loop=2</span><br></pre></td></tr></table></figure>
-
-<p><strong>含义</strong>:</p>
+    <h3 id="关键要点"><a href="#关键要点" class="headerlink" title="关键要点"></a>关键要点</h3><ul>
+<li>AI领域发展迅速，2025年各领域有明确领先者，但竞争激烈，技术更新快。</li>
+<li>代码领域：GitHub Copilot、Cursor和Amazon Q Developer表现突出，助力开发效率。</li>
+<li>聊天领域：ChatGPT、Claude和Microsoft Copilot在对话和企业应用中领先。</li>
+<li>视频领域：Synthesia、Runway和Pika在AI视频生成中表现优异，适合不同场景。</li>
+<li>工程&#x2F;开发：与代码工具重叠，GitHub Copilot等工具提升软件开发效率。</li>
+<li>音频领域：Play.ht、Descript和Mubert在语音和音乐生成中表现强劲。</li>
+<li>图片领域：Adobe Firefly、Midjourney和DALL-E 3在图像生成中各有优势。</li>
+<li>语音领域：Google Assistant、Alexa和ChatGPT在语音助手功能上领先。</li>
+<li>设计领域：Piktochart AI、Canva和Adobe Firefly在图形设计中表现突出。</li>
+</ul>
+<hr>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>AI代码工具显著提升了开发效率，主要用于代码生成、补全和调试。  </p>
 <ul>
-<li><p><code>bcf_prob=x</code>: 每个基本块被混淆的概率百分比 (0-100)</p>
+<li><strong>GitHub Copilot</strong>：由OpenAI和GitHub合作开发，支持多种编程语言，提供实时代码建议，学习项目风格，适合个人和团队开发。  </li>
+<li><strong>Cursor</strong>：以“Agent模式”著称，能理解上下文，执行复杂任务如自动化测试，适合需要深度AI协助的开发者。  </li>
+<li><strong>Amazon Q Developer</strong>：整合AWS云服务，支持从代码生成到架构设计的全流程，特别适合企业级开发。  </li>
+<li><strong>优势对比</strong>：GitHub Copilot在普及度和集成性上领先，Cursor更注重复杂任务，Amazon Q Developer在企业云环境中更具优势。</li>
+</ul>
+<h3 id="聊天"><a href="#聊天" class="headerlink" title="聊天"></a>聊天</h3><p>AI聊天工具在自然语言处理和企业协作中表现卓越。  </p>
 <ul>
-<li>默认值: 30%</li>
-<li>取值范围: 0 &lt; x ≤ 100</li>
-<li>作用: 控制混淆密度，值越高混淆越密集</li>
+<li><strong>ChatGPT</strong>：由OpenAI开发，广泛用于内容创作、客服和教育，最新版本（如ChatGPT-4o）对话流畅，市场份额领先。  </li>
+<li><strong>Claude</strong>：由Anthropic开发，在安全性和可解释性上出色，适合处理敏感话题。  </li>
+<li><strong>Microsoft Copilot</strong>：与Microsoft 365深度集成，适合企业文档和邮件协助，提供数据治理保障。  </li>
+<li><strong>优势对比</strong>：ChatGPT在用户普及度上领先，Claude更注重隐私，Copilot在企业场景中更具竞争力。</li>
 </ul>
-</li>
-<li><p><code>bcf_loop=x</code>: BCF pass在函数上循环执行的次数</p>
+<h3 id="视频"><a href="#视频" class="headerlink" title="视频"></a>视频</h3><p>AI视频工具降低了视频制作门槛，适合创意和企业应用。  </p>
 <ul>
-<li>默认值: 1次</li>
-<li>取值范围: x &gt; 0</li>
-<li>作用: 多轮混淆可以创建更复杂的虚假控制流</li>
+<li><strong>Synthesia</strong>：擅长AI生成逼真人像视频，支持多语言，适合培训和营销。  </li>
+<li><strong>Runway</strong>：提供文本到视频和图像到视频功能，适合创意人员和编辑师。  </li>
+<li><strong>Pika</strong>：以高清视频生成和“Pikadditions”功能著称，适合需要高生产力的用户。  </li>
+<li><strong>优势对比</strong>：Synthesia在企业视频上更专业，Runway适合创意，Pika在细节控制上更强。</li>
 </ul>
-</li>
-</ul>
-<h3 id="2-Substitution-参数"><a href="#2-Substitution-参数" class="headerlink" title="2. Substitution 参数"></a>2. <strong>Substitution 参数</strong></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在 Substitution.cpp 中定义</span></span><br><span class="line"><span class="function"><span class="type">static</span> cl::opt&lt;<span class="type">int</span>&gt; <span class="title">ObfTimes</span><span class="params">(<span class="string">&quot;sub_loop&quot;</span>,</span></span></span><br><span class="line"><span class="params"><span class="function">    cl::desc(<span class="string">&quot;Choose how many time the -sub pass loops on a function&quot;</span>),</span></span></span><br><span class="line"><span class="params"><span class="function">    cl::value_desc(<span class="string">&quot;number of times&quot;</span>), </span></span></span><br><span class="line"><span class="params"><span class="function">    cl::init(<span class="number">1</span>), </span></span></span><br><span class="line"><span class="params"><span class="function">    cl::Optional)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p><strong>使用方法</strong>:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-mllvm -sub -mllvm -sub_loop=3</span><br></pre></td></tr></table></figure>
-
-<p><strong>含义</strong>:</p>
+<h3 id="工程-x2F-开发"><a href="#工程-x2F-开发" class="headerlink" title="工程&#x2F;开发"></a>工程&#x2F;开发</h3><p>AI在工程和开发中主要提升软件开发效率，与代码工具重叠。  </p>
 <ul>
-<li><code>sub_loop=x</code>: 替换pass在函数上循环执行的次数<ul>
-<li>默认值: 1次</li>
-<li>取值范围: x &gt; 0</li>
-<li>作用: 多轮替换可以创建更复杂的运算表达式</li>
+<li><strong>GitHub Copilot</strong>：在代码生成和项目管理中表现优异，广泛应用于软件开发。  </li>
+<li><strong>Cursor</strong>：通过AI代理模式优化复杂任务，适合深度开发需求。  </li>
+<li><strong>Amazon Q Developer</strong>：支持架构设计和部署，适合企业级开发团队。  </li>
+<li><strong>优势对比</strong>：GitHub Copilot普及度高，Cursor更注重任务自动化，Amazon Q Developer在云端集成上更强。</li>
 </ul>
-</li>
-</ul>
-<h3 id="3-Split-Basic-Blocks-参数"><a href="#3-Split-Basic-Blocks-参数" class="headerlink" title="3. Split Basic Blocks 参数"></a>3. <strong>Split Basic Blocks 参数</strong></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在 SplitBasicBlocks.cpp 中定义</span></span><br><span class="line"><span class="function"><span class="type">static</span> cl::opt&lt;<span class="type">int</span>&gt; <span class="title">SplitNum</span><span class="params">(<span class="string">&quot;split_num&quot;</span>, </span></span></span><br><span class="line"><span class="params"><span class="function">    cl::init(<span class="number">2</span>),</span></span></span><br><span class="line"><span class="params"><span class="function">    cl::desc(<span class="string">&quot;Split &lt;split_num&gt; time each BB&quot;</span>))</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p><strong>使用方法</strong>:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-mllvm -<span class="built_in">split</span> -mllvm -split_num=5</span><br></pre></td></tr></table></figure>
-
-<p><strong>含义</strong>:</p>
+<h3 id="音频"><a href="#音频" class="headerlink" title="音频"></a>音频</h3><p>AI音频工具在语音生成和音乐创作中表现突出，降低制作门槛。  </p>
 <ul>
-<li><code>split_num=x</code>: 每个基本块的分割次数<ul>
-<li>默认值: 2次</li>
-<li>取值范围: 1 &lt; x ≤ 10</li>
-<li>作用: 将基本块分割成更小的片段，增加控制流复杂度</li>
+<li><strong>Play.ht</strong>：文本到语音功能强大，支持多种语言和风格，适合播客和音频书。  </li>
+<li><strong>Descript</strong>：提供多轨制作和填充词删除，适合音频编辑和播客制作。  </li>
+<li><strong>Mubert</strong>：专注于AI生成音乐，提供用户提交曲目发现，适合音乐创作者。  </li>
+<li><strong>优势对比</strong>：Play.ht在语音生成上领先，Descript更适合编辑，Mubert在音乐创作上更具创新。</li>
 </ul>
-</li>
+<h3 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h3><p>AI图片工具在图像生成中表现优异，广泛用于艺术和商业设计。  </p>
+<ul>
+<li><strong>Adobe Firefly</strong>：创新性强，适合设计师需求，提供高控制性和艺术性。  </li>
+<li><strong>Midjourney</strong>：生成高度逼真图像，灵活性高，适合艺术和概念设计。  </li>
+<li><strong>DALL-E 3</strong>：对复杂文本提示理解力强，生成高质量图像，应用场景广泛。  </li>
+<li><strong>优势对比</strong>：Adobe Firefly在专业设计上领先，Midjourney在艺术性上突出，DALL-E 3在通用性上更强。</li>
 </ul>
-<h2 id="参数组合使用示例"><a href="#参数组合使用示例" class="headerlink" title="参数组合使用示例"></a>参数组合使用示例</h2><h3 id="基础混淆配置"><a href="#基础混淆配置" class="headerlink" title="基础混淆配置:"></a>基础混淆配置:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-mllvm -bcf -mllvm -bcf_prob=30 -mllvm -bcf_loop=1</span><br></pre></td></tr></table></figure>
-
-<h3 id="中等强度配置"><a href="#中等强度配置" class="headerlink" title="中等强度配置:"></a>中等强度配置:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-mllvm -bcf -mllvm -bcf_prob=50 -mllvm -bcf_loop=2 \</span><br><span class="line">-mllvm -sub -mllvm -sub_loop=2 \</span><br><span class="line">-mllvm -<span class="built_in">split</span> -mllvm -split_num=3</span><br></pre></td></tr></table></figure>
-
-<h3 id="高强度配置"><a href="#高强度配置" class="headerlink" title="高强度配置:"></a>高强度配置:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-mllvm -fla \</span><br><span class="line">-mllvm -bcf -mllvm -bcf_prob=70 -mllvm -bcf_loop=3 \</span><br><span class="line">-mllvm -sub -mllvm -sub_loop=4 \</span><br><span class="line">-mllvm -<span class="built_in">split</span> -mllvm -split_num=5 \</span><br><span class="line">-mllvm -sobf</span><br></pre></td></tr></table></figure>
-
-<h2 id="参数验证和错误处理"><a href="#参数验证和错误处理" class="headerlink" title="参数验证和错误处理"></a>参数验证和错误处理</h2><h3 id="BCF-参数验证"><a href="#BCF-参数验证" class="headerlink" title="BCF 参数验证:"></a>BCF 参数验证:</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 概率检查</span></span><br><span class="line"><span class="keyword">if</span> (!((ObfProbRate &gt; <span class="number">0</span>) &amp;&amp; (ObfProbRate &lt;= <span class="number">100</span>))) &#123;</span><br><span class="line">    <span class="built_in">errs</span>() &lt;&lt; <span class="string">&quot;BogusControlFlow application basic blocks percentage &quot;</span></span><br><span class="line">              <span class="string">&quot;-bcf_prob=x must be 0 &lt; x &lt;= 100&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 循环次数检查  </span></span><br><span class="line"><span class="keyword">if</span> (ObfTimes &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="built_in">errs</span>() &lt;&lt; <span class="string">&quot;BogusControlFlow application number -bcf_loop=x must be x &gt; 0&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Substitution-参数验证"><a href="#Substitution-参数验证" class="headerlink" title="Substitution 参数验证:"></a>Substitution 参数验证:</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (ObfTimes &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="built_in">errs</span>() &lt;&lt; <span class="string">&quot;Substitution application number -sub_loop=x must be x &gt; 0&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Split-参数验证"><a href="#Split-参数验证" class="headerlink" title="Split 参数验证:"></a>Split 参数验证:</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!((SplitNum &gt; <span class="number">1</span>) &amp;&amp; (SplitNum &lt;= <span class="number">10</span>))) &#123;</span><br><span class="line">    <span class="built_in">errs</span>() &lt;&lt; <span class="string">&quot;Split application basic block percentage &quot;</span></span><br><span class="line">              <span class="string">&quot;-split_num=x must be 1 &lt; x &lt;= 10&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="无参数的混淆选项"><a href="#无参数的混淆选项" class="headerlink" title="无参数的混淆选项"></a>无参数的混淆选项</h2><p>以下混淆选项不支持额外参数，只能开启&#x2F;关闭:</p>
-<h3 id="4-Flattening-fla"><a href="#4-Flattening-fla" class="headerlink" title="4. Flattening (-fla)"></a>4. <strong>Flattening (-fla)</strong></h3><ul>
-<li>无可配置参数</li>
-<li>使用方法: <code>-mllvm -fla</code></li>
-<li>作用: 将函数的控制流完全平坦化</li>
+<h3 id="语音"><a href="#语音" class="headerlink" title="语音"></a>语音</h3><p>AI语音助手在日常任务和智能家居中表现卓越，提供便捷交互。  </p>
+<ul>
+<li><strong>Google Assistant</strong>：上下文理解强，智能家居集成度高，适合信息查询和任务管理。  </li>
+<li><strong>Alexa</strong>：设备兼容性广，语音交互自然，适合家庭娱乐场景。  </li>
+<li><strong>ChatGPT</strong>：通过语音接口提供自然对话体验，适合复杂查询和内容生成。  </li>
+<li><strong>优势对比</strong>：Google Assistant在智能家居上领先，Alexa普及度高，ChatGPT在对话深度上更强。</li>
 </ul>
-<h3 id="5-String-Obfuscation-sobf"><a href="#5-String-Obfuscation-sobf" class="headerlink" title="5. String Obfuscation (-sobf)"></a>5. <strong>String Obfuscation (-sobf)</strong></h3><ul>
-<li>无可配置参数  </li>
-<li>使用方法: <code>-mllvm -sobf</code></li>
-<li>作用: 混淆全局字符串常量</li>
+<h3 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h3><p>AI设计工具降低设计门槛，提升专业设计师生产力。  </p>
+<ul>
+<li><strong>Piktochart AI</strong>：快速生成图表和演示文稿，适合原型设计和非专业用户。  </li>
+<li><strong>Canva</strong>：界面友好，模板丰富，适合UX设计和快速创作。  </li>
+<li><strong>Adobe Firefly</strong>：整合Adobe生态，支持图像生成和矢量设计，专业性强。  </li>
+<li><strong>优势对比</strong>：Piktochart AI在快速生成上领先，Canva更普及，Adobe Firefly在专业设计上更强。</li>
 </ul>
-<h2 id="性能与安全性权衡"><a href="#性能与安全性权衡" class="headerlink" title="性能与安全性权衡"></a>性能与安全性权衡</h2><table>
+<hr>
+<hr>
+<h3 id="调查报告：2025年AI领域龙头分析与详细评估"><a href="#调查报告：2025年AI领域龙头分析与详细评估" class="headerlink" title="调查报告：2025年AI领域龙头分析与详细评估"></a>调查报告：2025年AI领域龙头分析与详细评估</h3><h4 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h4><p>在2025年5月30日，AI技术已深入渗透到多个领域，包括代码、聊天、视频、工程、开发、音频、图片、语音和设计。本报告基于近期权威数据和行业分析，详细评估各领域的领先AI工具和公司，探讨其优势、行业地位及未来趋势。报告旨在为用户提供全面、客观的参考，助其理解当前AI发展的进程。</p>
+<h4 id="代码领域：AI辅助开发工具的崛起"><a href="#代码领域：AI辅助开发工具的崛起" class="headerlink" title="代码领域：AI辅助开发工具的崛起"></a>代码领域：AI辅助开发工具的崛起</h4><p>AI代码工具在2025年已成为软件开发的核心，显著提升了开发效率。根据<a target="_blank" rel="noopener" href="https://www.qodo.ai/blog/best-ai-coding-assistant-tools/">15 Best AI Coding Assistant Tools in 2025 - Qodo</a>，以下工具表现突出：</p>
+<ul>
+<li><strong>GitHub Copilot</strong>：由OpenAI和GitHub合作开发，支持多种编程语言，提供实时代码建议，学习项目风格，适合个人和团队开发。其优势在于普及度和集成性，特别是在GitHub生态系统中。</li>
+<li><strong>Cursor</strong>：以“Agent模式”著称，能理解上下文，执行复杂任务如自动化测试和调试。根据<a target="_blank" rel="noopener" href="https://www.datacamp.com/blog/best-ai-coding-assistants">The Top 12 AI Coding Assistants to Use in 2025 | DataCamp</a>，Cursor在复杂任务自动化上表现优异，适合深度开发需求。</li>
+<li><strong>Amazon Q Developer</strong>：由AWS提供，支持从代码生成到架构设计的全流程。根据<a target="_blank" rel="noopener" href="https://spacelift.io/blog/ai-coding-assistant-tools">20 Best AI-Powered Coding Assistant Tools in 2025 - Spacelift</a>，其优势在于云端集成和企业级支持，特别适合大型开发团队。</li>
+<li><strong>优势对比</strong>：GitHub Copilot在用户基础和集成性上领先，Cursor更注重任务自动化，Amazon Q Developer在企业云环境中更具优势。</li>
+</ul>
+<h4 id="聊天领域：对话AI的普及与竞争"><a href="#聊天领域：对话AI的普及与竞争" class="headerlink" title="聊天领域：对话AI的普及与竞争"></a>聊天领域：对话AI的普及与竞争</h4><p>AI聊天工具在2025年已广泛应用于个人和企业场景。根据<a target="_blank" rel="noopener" href="https://www.techtarget.com/searchenterpriseai/tip/The-best-AI-chatbots-Compare-features-and-costs">The best AI chatbots for 2025 | TechTarget</a>，以下工具表现突出：</p>
+<ul>
+<li><strong>ChatGPT</strong>：由OpenAI开发，市场份额领先，最新版本（如ChatGPT-4o）对话流畅，广泛用于内容创作、客服和教育。根据<a target="_blank" rel="noopener" href="https://firstpagesage.com/reports/top-generative-ai-chatbots/">Top Generative AI Chatbots by Market Share – May 2025 – First Page Sage</a>，其用户增长虽放缓，但仍为市场领导者。</li>
+<li><strong>Claude</strong>：由Anthropic开发，在安全性和可解释性上出色，适合处理敏感话题。根据<a target="_blank" rel="noopener" href="https://www.upmarket.co/blog/the-best-ai-chatbots-llms-of-q1-2025-complete-comparison-guide-and-research-firm-ranks/">The Best AI Chatbots &amp; LLMs of Q1 2025: Rankings &amp; Data - Upmarket</a>，其在隐私保护和复杂对话上表现优异。</li>
+<li><strong>Microsoft Copilot</strong>：与Microsoft 365深度集成，适合企业文档和邮件协助，提供数据治理保障。根据<a target="_blank" rel="noopener" href="https://www.techrepublic.com/article/best-ai-chatbot/">The Most Powerful AI Chatbots for 2025 - TechRepublic</a>，其在团队协作中表现突出。</li>
+<li><strong>优势对比</strong>：ChatGPT在用户普及度上领先，Claude更注重隐私，Copilot在企业场景中更具竞争力。</li>
+</ul>
+<h4 id="视频领域：AI视频生成的创新与应用"><a href="#视频领域：AI视频生成的创新与应用" class="headerlink" title="视频领域：AI视频生成的创新与应用"></a>视频领域：AI视频生成的创新与应用</h4><p>AI视频工具在2025年降低了视频制作门槛，适合创意和企业应用。根据<a target="_blank" rel="noopener" href="https://zapier.com/blog/best-ai-video-generator/">The 11 best AI video generators in 2025 | Zapier</a>，以下工具表现突出：</p>
+<ul>
+<li><strong>Synthesia</strong>：擅长AI生成逼真人像视频，支持多语言，适合培训和营销。根据<a target="_blank" rel="noopener" href="https://www.aitoolssme.com/comparison/video-generators">Best AI Video Generators for 2025 - With Video Examples - AIToolsSME</a>，其在企业视频上表现专业。</li>
+<li><strong>Runway</strong>：提供文本到视频和图像到视频功能，适合创意人员和编辑师。根据<a target="_blank" rel="noopener" href="https://www.motiontheagency.com/blog/top-generative-ai-video-tools">Top Generative AI Video Tools in 2025: Features, Pros &amp; Cons Compared! - MotionTheAgency</a>，其在创意场景中表现优异。</li>
+<li><strong>Pika</strong>：以高清视频生成和“Pikadditions”功能著称，适合需要高生产力的用户。根据<a target="_blank" rel="noopener" href="https://www.tomsguide.com/features/5-best-ai-video-generators-tested-and-compared">I’ve spent 200 hours testing the best AI video generators — here’s my top picks | Tom’s Guide</a>，其在细节控制上更强。</li>
+<li><strong>优势对比</strong>：Synthesia在企业视频上更专业，Runway适合创意，Pika在细节控制上更强。</li>
+</ul>
+<h4 id="工程-x2F-开发领域：AI在软件开发的深度应用"><a href="#工程-x2F-开发领域：AI在软件开发的深度应用" class="headerlink" title="工程&#x2F;开发领域：AI在软件开发的深度应用"></a>工程&#x2F;开发领域：AI在软件开发的深度应用</h4><p>AI在工程和开发中主要提升软件开发效率，与代码工具重叠。根据<a target="_blank" rel="noopener" href="https://newsletter.eng-leadership.com/p/top-ai-coding-tools-for-engineering">Top AI Coding Tools for Engineering Teams in 2025 - Engineering Leadership</a>，以下工具表现突出：</p>
+<ul>
+<li><strong>GitHub Copilot</strong>：在代码生成和项目管理中表现优异，广泛应用于软件开发。其优势在于普及度和GitHub生态系统的集成。</li>
+<li><strong>Cursor</strong>：通过AI代理模式优化复杂任务，适合深度开发需求。根据<a target="_blank" rel="noopener" href="https://www.zdnet.com/article/the-best-ai-for-coding-in-2025-including-two-new-top-picks-and-what-not-to-use/">The best AI for coding in 2025 | ZDNET</a>，其在任务自动化上表现优异。</li>
+<li><strong>Amazon Q Developer</strong>：支持架构设计和部署，适合企业级开发团队。根据<a target="_blank" rel="noopener" href="https://spacelift.io/blog/ai-coding-assistant-tools">20 Best AI-Powered Coding Assistant Tools in 2025 - Spacelift</a>，其在云端集成上更强。</li>
+<li><strong>优势对比</strong>：GitHub Copilot普及度高，Cursor更注重任务自动化，Amazon Q Developer在企业云环境中更具优势。</li>
+</ul>
+<h4 id="音频领域：AI音频工具的多样化应用"><a href="#音频领域：AI音频工具的多样化应用" class="headerlink" title="音频领域：AI音频工具的多样化应用"></a>音频领域：AI音频工具的多样化应用</h4><p>AI音频工具在2025年显著降低了音频制作门槛，适合语音生成和音乐创作。根据<a target="_blank" rel="noopener" href="https://www.elegantthemes.com/blog/business/best-ai-audio-tools">10 Best AI Audio Tools in 2025 (For Podcasts, Music &amp; More) - Elegant Themes</a>，以下工具表现突出：</p>
+<ul>
+<li><strong>Play.ht</strong>：文本到语音功能强大，支持多种语言和风格，适合播客和音频书。根据<a target="_blank" rel="noopener" href="https://zapier.com/blog/best-ai-voice-generator/">The 6 best AI voice generators | Zapier</a>，其语音生成质量高。</li>
+<li><strong>Descript</strong>：提供多轨制作和填充词删除，适合音频编辑和播客制作。根据<a target="_blank" rel="noopener" href="https://sonix.ai/resources/top-6-ai-tools-for-audio-and-video/">Top 7 AI Tools for Audio and Video in 2025 • Sonix</a>，其编辑功能强大。</li>
+<li><strong>Mubert</strong>：专注于AI生成音乐，提供用户提交曲目发现，适合音乐创作者。根据<a target="_blank" rel="noopener" href="https://www.forbes.com/sites/bernardmarr/2024/04/26/unleashing-ai-sounds-the-best-tools-for-music-voices-and-effects/">Unleashing AI Sounds: The Best Tools For Music, Voices, And Effects - Forbes</a>，其音乐生成创新性强。</li>
+<li><strong>优势对比</strong>：Play.ht在语音生成上领先，Descript更适合编辑，Mubert在音乐创作上更具创新。</li>
+</ul>
+<h4 id="图片领域：AI图像生成的艺术与实用性"><a href="#图片领域：AI图像生成的艺术与实用性" class="headerlink" title="图片领域：AI图像生成的艺术与实用性"></a>图片领域：AI图像生成的艺术与实用性</h4><p>AI图片工具在2025年重塑了视觉内容创作，广泛用于艺术和商业设计。根据<a target="_blank" rel="noopener" href="https://www.pcmag.com/picks/the-best-ai-image-generators">Tested: The Best AI Image Generators for 2025 | PCMag</a>，以下工具表现突出：</p>
+<ul>
+<li><strong>Adobe Firefly</strong>：创新性强，适合设计师需求，提供高控制性和艺术性。根据<a target="_blank" rel="noopener" href="https://www.aitoolssme.com/comparison/image-generators">Best AI Image Generators - Comparison With 16 Generated Images - AIToolsSME</a>，其在专业设计上领先。</li>
+<li><strong>Midjourney</strong>：生成高度逼真图像，灵活性高，适合艺术和概念设计。根据<a target="_blank" rel="noopener" href="https://www.tomsguide.com/best-picks/best-ai-image-generators">I’ve created thousands of AI images and these are the best AI image generators of 2025 - Tom’s Guide</a>，其艺术性突出。</li>
+<li><strong>DALL-E 3</strong>：对复杂文本提示理解力强，生成高质量图像，应用场景广泛。根据<a target="_blank" rel="noopener" href="https://www.cnet.com/tech/services-and-software/best-ai-image-generators/">Best AI Image Generators of 2025 - CNET</a>，其通用性强。</li>
+<li><strong>优势对比</strong>：Adobe Firefly在专业设计上领先，Midjourney在艺术性上突出，DALL-E 3在通用性上更强。</li>
+</ul>
+<h4 id="语音领域：AI语音助手的普及与创新"><a href="#语音领域：AI语音助手的普及与创新" class="headerlink" title="语音领域：AI语音助手的普及与创新"></a>语音领域：AI语音助手的普及与创新</h4><p>AI语音助手在2025年成为日常生活的助手，提供便捷交互。根据<a target="_blank" rel="noopener" href="https://www.lindy.ai/blog/best-ai-voice-assistants">I Tested the Top 24 AI Voice Assistants (So You Don’t Have To) | Lindy</a>，以下工具表现突出：</p>
+<ul>
+<li><strong>Google Assistant</strong>：上下文理解强，智能家居集成度高，适合信息查询和任务管理。根据<a target="_blank" rel="noopener" href="https://www.analyticsinsight.net/ampstories/artificial-intelligence/best-ai-voice-assistants-in-2025">Best AI Voice Assistants in 2025 - Analytics Insight</a>，其在日常任务上表现优异。</li>
+<li><strong>Alexa</strong>：设备兼容性广，语音交互自然，适合家庭娱乐场景。根据<a target="_blank" rel="noopener" href="https://www.outsourceaccelerator.com/articles/list-of-voice-assistants/">List of voice assistants you can use in 2025 | Outsource Accelerator</a>，其普及度高。</li>
+<li><strong>ChatGPT</strong>：通过语音接口提供自然对话体验，适合复杂查询和内容生成。根据<a target="_blank" rel="noopener" href="https://9to5mac.com/2025/04/30/i-tested-iphone-ai-voice-assistants-heres-the-best-one/">I tested iPhone AI voice assistants: here’s the best one - 9to5Mac</a>，其在对话深度上表现优异。</li>
+<li><strong>优势对比</strong>：Google Assistant在智能家居上领先，Alexa普及度高，ChatGPT在对话深度上更强。</li>
+</ul>
+<h4 id="设计领域：AI工具的创意与效率提升"><a href="#设计领域：AI工具的创意与效率提升" class="headerlink" title="设计领域：AI工具的创意与效率提升"></a>设计领域：AI工具的创意与效率提升</h4><p>AI设计工具在2025年降低了设计门槛，提升了专业设计师的生产力。根据<a target="_blank" rel="noopener" href="https://www.uxpin.com/studio/blog/ai-tools-for-designers/">15 AI Tools for Designers in 2025 | UXPin</a>，以下工具表现突出：</p>
+<ul>
+<li><strong>Piktochart AI</strong>：快速生成图表和演示文稿，适合原型设计和非专业用户。根据<a target="_blank" rel="noopener" href="https://piktochart.com/blog/ai-graphic-design-tools/">Top 11 Best AI Graphic Design Tools for 2025 - Piktochart</a>，其在快速生成上表现优异。</li>
+<li><strong>Canva</strong>：界面友好，模板丰富，适合UX设计和快速创作。根据<a target="_blank" rel="noopener" href="https://www.unite.ai/10-best-ai-graphic-design-tools/">10 Best AI Graphic Design Tools (May 2025) - Unite.AI</a>，其普及度高。</li>
+<li><strong>Adobe Firefly</strong>：整合Adobe生态，支持图像生成和矢量设计，专业性强。根据<a target="_blank" rel="noopener" href="https://www.devlinpeck.com/content/ai-in-design">AI in Design: 15 Best Tools + The Future of the Industry (2025) | Devlin Peck</a>，其在专业设计上表现突出。</li>
+<li><strong>优势对比</strong>：Piktochart AI在快速生成上领先，Canva更普及，Adobe Firefly在专业设计上更强。</li>
+</ul>
+<h4 id="行业趋势与未来展望"><a href="#行业趋势与未来展望" class="headerlink" title="行业趋势与未来展望"></a>行业趋势与未来展望</h4><p>根据<a target="_blank" rel="noopener" href="https://www.cbinsights.com/research/report/artificial-intelligence-top-startups-2025/">AI 100: The most promising artificial intelligence startups of 2025 - CB Insights Research</a>，AI工具正从单一功能向多功能平台发展，覆盖内容创作到工程开发的整个流程。企业级AI应用（如Microsoft Copilot和Amazon Q Developer）成为新的增长点，同时开放源码工具（如Stable Diffusion）挑战封闭式AI系统。伦理和隐私问题（如数据安全和偏见）仍是未来发展的关键挑战。</p>
+<h4 id="数据总结"><a href="#数据总结" class="headerlink" title="数据总结"></a>数据总结</h4><p>以下表格总结了各领域领先工具及其主要优势：</p>
+<table>
 <thead>
 <tr>
-<th>参数</th>
-<th>性能影响</th>
-<th>安全提升</th>
-<th>推荐值</th>
+<th><strong>领域</strong></th>
+<th><strong>领先工具</strong></th>
+<th><strong>主要优势</strong></th>
 </tr>
 </thead>
 <tbody><tr>
-<td><code>bcf_prob</code></td>
-<td>线性增长</td>
-<td>线性增长</td>
-<td>30-50%</td>
+<td>代码</td>
+<td>GitHub Copilot</td>
+<td>代码生成，GitHub集成，普及度高</td>
 </tr>
 <tr>
-<td><code>bcf_loop</code></td>
-<td>指数增长</td>
-<td>对数增长</td>
-<td>1-2次</td>
+<td>聊天</td>
+<td>ChatGPT</td>
+<td>对话流畅，市场份额领先，应用广泛</td>
 </tr>
 <tr>
-<td><code>sub_loop</code></td>
-<td>线性增长</td>
-<td>线性增长</td>
-<td>2-3次</td>
+<td>视频</td>
+<td>Synthesia</td>
+<td>逼真人像视频，多语言支持，企业级应用</td>
 </tr>
 <tr>
-<td><code>split_num</code></td>
-<td>轻微增长</td>
-<td>中等增长</td>
-<td>3-5次</td>
+<td>工程&#x2F;开发</td>
+<td>Amazon Q Developer</td>
+<td>云端集成，架构设计，企业级支持</td>
+</tr>
+<tr>
+<td>音频</td>
+<td>Play.ht</td>
+<td>文本到语音，多语言，语音质量高</td>
+</tr>
+<tr>
+<td>图片</td>
+<td>Adobe Firefly</td>
+<td>专业设计，高控制性，艺术性强</td>
+</tr>
+<tr>
+<td>语音</td>
+<td>Google Assistant</td>
+<td>上下文理解，智能家居集成，任务管理</td>
+</tr>
+<tr>
+<td>设计</td>
+<td>Canva</td>
+<td>界面友好，模板丰富，普及度高</td>
 </tr>
 </tbody></table>
-<h2 id="调试和统计信息"><a href="#调试和统计信息" class="headerlink" title="调试和统计信息"></a>调试和统计信息</h2><p>代码中还包含丰富的统计信息收集:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// BCF 统计</span></span><br><span class="line"><span class="built_in">STATISTIC</span>(NumFunction, <span class="string">&quot;a. Number of functions in this module&quot;</span>);</span><br><span class="line"><span class="built_in">STATISTIC</span>(NumModifiedBasicBlocks, <span class="string">&quot;d. Number of modified basic blocks&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Substitution 统计</span></span><br><span class="line"><span class="built_in">STATISTIC</span>(Add, <span class="string">&quot;Add substitued&quot;</span>);</span><br><span class="line"><span class="built_in">STATISTIC</span>(Sub, <span class="string">&quot;Sub substitued&quot;</span>);</span><br><span class="line"><span class="built_in">STATISTIC</span>(And, <span class="string">&quot;And substitued&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 其他统计...</span></span><br></pre></td></tr></table></figure>
-
-<p>使用 <code>-stats</code> 参数可以查看详细的混淆统计信息。</p>
-<p>这些参数的合理配置可以在代码保护强度和运行性能之间找到最佳平衡点。</p>
+<h4 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h4><p>在2025年，AI技术在各领域的应用已趋于成熟，领先工具和公司如OpenAI、Google、Microsoft和Adobe在各自领域占据主导地位。用户可根据具体需求选择合适的工具，以最大化AI的潜力，同时关注伦理和隐私问题以确保可持续发展。</p>
+<hr>
+<h3 id="关键引文"><a href="#关键引文" class="headerlink" title="关键引文"></a>关键引文</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.qodo.ai/blog/best-ai-coding-assistant-tools/">15 Best AI Coding Assistant Tools in 2025 - Qodo</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.techtarget.com/searchenterpriseai/tip/The-best-AI-chatbots-Compare-features-and-costs">The best AI chatbots for 2025 | TechTarget</a></li>
+<li><a target="_blank" rel="noopener" href="https://zapier.com/blog/best-ai-video-generator/">The 11 best AI video generators in 2025 | Zapier</a></li>
+<li><a target="_blank" rel="noopener" href="https://newsletter.eng-leadership.com/p/top-ai-coding-tools-for-engineering">Top AI Coding Tools for Engineering Teams in 2025 - Engineering Leadership</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.elegantthemes.com/blog/business/best-ai-audio-tools">10 Best AI Audio Tools in 2025 (For Podcasts, Music &amp; More) - Elegant Themes</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.pcmag.com/picks/the-best-ai-image-generators">Tested: The Best AI Image Generators for 2025 | PCMag</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.lindy.ai/blog/best-ai-voice-assistants">I Tested the Top 24 AI Voice Assistants (So You Don’t Have To) | Lindy</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.uxpin.com/studio/blog/ai-tools-for-designers/">15 AI Tools for Designers in 2025 | UXPin</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cbinsights.com/research/report/artificial-intelligence-top-startups-2025/">AI 100: The most promising artificial intelligence startups of 2025 - CB Insights Research</a></li>
+</ul>
 
   </div>
   
@@ -2722,10 +2800,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2025-05-23T10:24:09+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2025-05-30T15:24:02+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：May 23, 2025</p>
+    <p>更新于：May 30, 2025</p>
   </a>
 </div>
 
@@ -2744,7 +2822,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://saliey.github.io/2025/05/23/ollvm-%E6%B7%B7%E6%B7%86%E6%8C%87%E4%BB%A4%E8%A7%A3%E9%87%8A/&title=ollvm 混淆指令解释 - say_lie&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://saliey.github.io/2025/05/30/%E6%9C%80%E6%96%B0%E7%9A%84-ai-%E4%BA%A7%E5%93%81%E5%AF%B9%E6%AF%94/&title=最新的 ai 产品对比 - say_lie&summary="
           
           >
           
@@ -2756,7 +2834,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://saliey.github.io/2025/05/23/ollvm-%E6%B7%B7%E6%B7%86%E6%8C%87%E4%BB%A4%E8%A7%A3%E9%87%8A/&title=ollvm 混淆指令解释 - say_lie&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://saliey.github.io/2025/05/30/%E6%9C%80%E6%96%B0%E7%9A%84-ai-%E4%BA%A7%E5%93%81%E5%AF%B9%E6%AF%94/&title=最新的 ai 产品对比 - say_lie&summary="
           
           >
           
@@ -2768,7 +2846,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://saliey.github.io/2025/05/23/ollvm-%E6%B7%B7%E6%B7%86%E6%8C%87%E4%BB%A4%E8%A7%A3%E9%87%8A/&title=ollvm 混淆指令解释 - say_lie&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://saliey.github.io/2025/05/30/%E6%9C%80%E6%96%B0%E7%9A%84-ai-%E4%BA%A7%E5%93%81%E5%AF%B9%E6%AF%94/&title=最新的 ai 产品对比 - say_lie&summary="
           
           >
           
@@ -2801,19 +2879,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/2025/05/29/%E8%BA%AB%E4%BD%93%E9%BB%91%E5%AE%A2/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>身体黑客</p>
-          <p class='content'>这是个非常有趣的话题！人体确实存在许多奇妙的条件反射和联动机制。让我详细介绍一下：
-关于香味与记忆您提到的应该是迷迭香（Rosemary）：
-
-含有1,8-桉叶素等活性成分
-研究表明能提高记忆力...</p>
-        </a>
       
-      
-        <a class='next' href='/2025/05/22/ollvm-%E6%B7%B7%E6%B7%86%E5%8F%82%E6%95%B0/'>
-          <p class='title'>ollvm 混淆参数<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>LLVM混淆参数完整指南一、混淆Pass类型及对应注解1. 虚假控制流 (Bogus Control Flow - BCF)注解: __attribute__((annotate(&quot;b...</p>
+        <a class='next' href='/2025/05/30/Michael-Saylor-%E7%9A%84-21-%E6%9D%A1%E8%B4%A2%E5%AF%8C%E8%B7%AF%E5%BE%84/'>
+          <p class='title'>Michael Saylor 的 21 条财富路径<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>1.认知清晰：理解比特币作为“完美资本”的不可篡改与可编程特性；2.坚定信念：比特币是历史上最高效的价值存储工具；3.勇气决断：将债券等资产置换为比特币；4.家族协同：实现跨代际的比特币资产传承...</p>
         </a>
       
     </div>
@@ -2829,7 +2898,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <article class="post white-box shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/2025/05/23/ollvm-%E6%B7%B7%E6%B7%86%E6%8C%87%E4%BB%A4%E8%A7%A3%E9%87%8A/index.html#comments">
+      <meta itemprop="discussionUrl" content="/2025/05/30/%E6%9C%80%E6%96%B0%E7%9A%84-ai-%E4%BA%A7%E5%93%81%E5%AF%B9%E6%AF%94/index.html#comments">
     </span>
     <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
@@ -2871,7 +2940,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E5%8F%82%E6%95%B0%E5%88%97%E8%A1%A8"><span class="toc-text">完整参数列表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-BCF-Bogus-Control-Flow-%E5%8F%82%E6%95%B0"><span class="toc-text">1. BCF (Bogus Control Flow) 参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Substitution-%E5%8F%82%E6%95%B0"><span class="toc-text">2. Substitution 参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Split-Basic-Blocks-%E5%8F%82%E6%95%B0"><span class="toc-text">3. Split Basic Blocks 参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E7%BB%84%E5%90%88%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"><span class="toc-text">参数组合使用示例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%B7%B7%E6%B7%86%E9%85%8D%E7%BD%AE"><span class="toc-text">基础混淆配置:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E7%AD%89%E5%BC%BA%E5%BA%A6%E9%85%8D%E7%BD%AE"><span class="toc-text">中等强度配置:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E5%BC%BA%E5%BA%A6%E9%85%8D%E7%BD%AE"><span class="toc-text">高强度配置:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E9%AA%8C%E8%AF%81%E5%92%8C%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86"><span class="toc-text">参数验证和错误处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BCF-%E5%8F%82%E6%95%B0%E9%AA%8C%E8%AF%81"><span class="toc-text">BCF 参数验证:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Substitution-%E5%8F%82%E6%95%B0%E9%AA%8C%E8%AF%81"><span class="toc-text">Substitution 参数验证:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Split-%E5%8F%82%E6%95%B0%E9%AA%8C%E8%AF%81"><span class="toc-text">Split 参数验证:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E5%8F%82%E6%95%B0%E7%9A%84%E6%B7%B7%E6%B7%86%E9%80%89%E9%A1%B9"><span class="toc-text">无参数的混淆选项</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Flattening-fla"><span class="toc-text">4. Flattening (-fla)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-String-Obfuscation-sobf"><span class="toc-text">5. String Obfuscation (-sobf)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E4%B8%8E%E5%AE%89%E5%85%A8%E6%80%A7%E6%9D%83%E8%A1%A1"><span class="toc-text">性能与安全性权衡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B0%83%E8%AF%95%E5%92%8C%E7%BB%9F%E8%AE%A1%E4%BF%A1%E6%81%AF"><span class="toc-text">调试和统计信息</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E8%A6%81%E7%82%B9"><span class="toc-text">关键要点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%8A%E5%A4%A9"><span class="toc-text">聊天</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E9%A2%91"><span class="toc-text">视频</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E7%A8%8B-x2F-%E5%BC%80%E5%8F%91"><span class="toc-text">工程&#x2F;开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9F%B3%E9%A2%91"><span class="toc-text">音频</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E7%89%87"><span class="toc-text">图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E9%9F%B3"><span class="toc-text">语音</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1"><span class="toc-text">设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E6%9F%A5%E6%8A%A5%E5%91%8A%EF%BC%9A2025%E5%B9%B4AI%E9%A2%86%E5%9F%9F%E9%BE%99%E5%A4%B4%E5%88%86%E6%9E%90%E4%B8%8E%E8%AF%A6%E7%BB%86%E8%AF%84%E4%BC%B0"><span class="toc-text">调查报告：2025年AI领域龙头分析与详细评估</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-text">引言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E9%A2%86%E5%9F%9F%EF%BC%9AAI%E8%BE%85%E5%8A%A9%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E7%9A%84%E5%B4%9B%E8%B5%B7"><span class="toc-text">代码领域：AI辅助开发工具的崛起</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%81%8A%E5%A4%A9%E9%A2%86%E5%9F%9F%EF%BC%9A%E5%AF%B9%E8%AF%9DAI%E7%9A%84%E6%99%AE%E5%8F%8A%E4%B8%8E%E7%AB%9E%E4%BA%89"><span class="toc-text">聊天领域：对话AI的普及与竞争</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%86%E9%A2%91%E9%A2%86%E5%9F%9F%EF%BC%9AAI%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90%E7%9A%84%E5%88%9B%E6%96%B0%E4%B8%8E%E5%BA%94%E7%94%A8"><span class="toc-text">视频领域：AI视频生成的创新与应用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E7%A8%8B-x2F-%E5%BC%80%E5%8F%91%E9%A2%86%E5%9F%9F%EF%BC%9AAI%E5%9C%A8%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%9A%84%E6%B7%B1%E5%BA%A6%E5%BA%94%E7%94%A8"><span class="toc-text">工程&#x2F;开发领域：AI在软件开发的深度应用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9F%B3%E9%A2%91%E9%A2%86%E5%9F%9F%EF%BC%9AAI%E9%9F%B3%E9%A2%91%E5%B7%A5%E5%85%B7%E7%9A%84%E5%A4%9A%E6%A0%B7%E5%8C%96%E5%BA%94%E7%94%A8"><span class="toc-text">音频领域：AI音频工具的多样化应用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%BE%E7%89%87%E9%A2%86%E5%9F%9F%EF%BC%9AAI%E5%9B%BE%E5%83%8F%E7%94%9F%E6%88%90%E7%9A%84%E8%89%BA%E6%9C%AF%E4%B8%8E%E5%AE%9E%E7%94%A8%E6%80%A7"><span class="toc-text">图片领域：AI图像生成的艺术与实用性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E9%9F%B3%E9%A2%86%E5%9F%9F%EF%BC%9AAI%E8%AF%AD%E9%9F%B3%E5%8A%A9%E6%89%8B%E7%9A%84%E6%99%AE%E5%8F%8A%E4%B8%8E%E5%88%9B%E6%96%B0"><span class="toc-text">语音领域：AI语音助手的普及与创新</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E9%A2%86%E5%9F%9F%EF%BC%9AAI%E5%B7%A5%E5%85%B7%E7%9A%84%E5%88%9B%E6%84%8F%E4%B8%8E%E6%95%88%E7%8E%87%E6%8F%90%E5%8D%87"><span class="toc-text">设计领域：AI工具的创意与效率提升</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A1%8C%E4%B8%9A%E8%B6%8B%E5%8A%BF%E4%B8%8E%E6%9C%AA%E6%9D%A5%E5%B1%95%E6%9C%9B"><span class="toc-text">行业趋势与未来展望</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%80%BB%E7%BB%93"><span class="toc-text">数据总结</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-text">结论</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%BC%95%E6%96%87"><span class="toc-text">关键引文</span></a></li></ol>
     </div>
   </section>
 
@@ -3441,7 +3510,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"say_lie","url":"https://saliey.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"nop","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://saliey.github.io/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://saliey.github.io/","name":"say_lie"}},{"@type":"ListItem","position":3,"item":{"@id":"https://saliey.github.io/2025/05/23/ollvm-混淆指令解释/","name":"ollvm 混淆指令解释"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"say_lie","url":"https://saliey.github.io/","keywords":null,"description":"","author":{"@type":"Person","name":"nop","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://saliey.github.io/","description":""},"publisher":{"@type":"Organization","name":"say_lie","url":"https://saliey.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://saliey.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"ollvm 混淆指令解释","description":"","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://saliey.github.io/2025/05/23/ollvm-%E6%B7%B7%E6%B7%86%E6%8C%87%E4%BB%A4%E8%A7%A3%E9%87%8A/"},"author":{"@type":"Person","name":"nop","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://saliey.github.io/"},"publisher":{"@type":"Organization","name":"say_lie","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://saliey.github.io/2025/05/23/ollvm-%E6%B7%B7%E6%B7%86%E6%8C%87%E4%BB%A4%E8%A7%A3%E9%87%8A/","wordCount":0,"datePublished":"2025-05-23T02:23:50.000Z","dateModified":"2025-05-23T02:24:09.399Z","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"say_lie","url":"https://saliey.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"nop","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://saliey.github.io/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://saliey.github.io/","name":"say_lie"}},{"@type":"ListItem","position":3,"item":{"@id":"https://saliey.github.io/2025/05/30/最新的-ai-产品对比/","name":"最新的 ai 产品对比"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"say_lie","url":"https://saliey.github.io/","keywords":null,"description":"","author":{"@type":"Person","name":"nop","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://saliey.github.io/","description":""},"publisher":{"@type":"Organization","name":"say_lie","url":"https://saliey.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://saliey.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"最新的 ai 产品对比","description":"","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://saliey.github.io/2025/05/30/%E6%9C%80%E6%96%B0%E7%9A%84-ai-%E4%BA%A7%E5%93%81%E5%AF%B9%E6%AF%94/"},"author":{"@type":"Person","name":"nop","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://saliey.github.io/"},"publisher":{"@type":"Organization","name":"say_lie","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://saliey.github.io/2025/05/30/%E6%9C%80%E6%96%B0%E7%9A%84-ai-%E4%BA%A7%E5%93%81%E5%AF%B9%E6%AF%94/","wordCount":0,"datePublished":"2025-05-30T07:23:44.000Z","dateModified":"2025-05-30T07:24:02.651Z","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

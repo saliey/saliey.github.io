@@ -1740,7 +1740,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1762135151177),
+    lastupdate: new Date(1762227162128),
     sidebar: {
       for_page: ["blogger","category","tagcloud","donate"],
       for_post: ["toc"],
@@ -2520,6 +2520,64 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <link itemprop="mainEntityOfPage" href="https://saliey.github.io/2023/05/29/v2ray的理解/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="say_lie">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="say_lie">
+    <meta itemprop="description" content="">
+  </span>
+  
+  
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  
+    
+    <h2 class="article-title"  itemprop="name headline">
+      <a href="/2023/05/29/v2ray%E7%9A%84%E7%90%86%E8%A7%A3/"  itemprop="url">
+        v2ray的理解
+      </a>
+    </h2>
+  
+  <div class='md article-desc' itemprop="articleBody">
+    
+      
+        V2Ray（也称为V2Ray-core）是一个开源的网络代理工具，用于提供安全、高效的网络代理和隐私保护。它支持多种协议和传输方式，并具有灵活的路由配置，能够满足用户各种复杂的代理需求。
+V2Ray的架构可以分为以下几个部分：
+
+入口（Inbound）：V2Ray的入口是指接收来自客户端的连接和请求的组件。它可以监听多个协议和端口，如Socks、HTTP、VMess等。入口可以进行流量的解密...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time itemprop="dateCreated datePublished" datetime="2023-05-29T22:06:57+08:00">2023-05-29</time>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/2023/05/29/v2ray%E7%9A%84%E7%90%86%E8%A7%A3/' itemprop="url">
+            Read More
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
   <link itemprop="mainEntityOfPage" href="https://saliey.github.io/2023/05/24/翻译prompt/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="say_lie">
@@ -3039,63 +3097,6 @@ godaddy 购买域名，https://hk.godaddy.com/en
       
         <div>
           <a class='readmore' href='/2022/11/16/%E7%A7%81%E4%BA%BA%E8%BD%AC%E5%8F%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/' itemprop="url">
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="https://saliey.github.io/2022/11/06/vultr服务搭建/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="say_lie">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="say_lie">
-    <meta itemprop="description" content="">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/11/06/vultr%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/"  itemprop="url">
-        vultr服务搭建
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        官网购买服务https://www.vultr.com/
-ssh 进入服务器：.# apt-get install redir.# sudo iptables -A INPUT -p tcp –dport 443 -j ACCEPT.# sudo redir :443 1.1.1.1:443
-然后在 vultr 的后台打开防火墙的端口：Firewall -&gt; new -&gt; 打开对...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-11-06T11:27:26+08:00">2022-11-06</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/11/06/vultr%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/' itemprop="url">
             Read More
           </a>
         </div>

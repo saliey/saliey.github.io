@@ -1628,7 +1628,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1773735415463),
+    lastupdate: new Date(1773736080102),
     sidebar: {
       for_page: [],
       for_post: ["toc"],
@@ -3188,7 +3188,7 @@ ssh 进入服务器：.# apt-get install redir.# sudo iptables -A INPUT -p tcp �
     if (!bgContainer) {
       bgContainer = document.createElement('div');
       bgContainer.id = 'sal-bg-container';
-      bgContainer.innerHTML = '<div class="sal-bg-layer sal-bg-active"></div><div class="sal-bg-layer"></div>';
+      bgContainer.innerHTML = '<div class="sal-bg-layer"></div><div class="sal-bg-layer"></div>';
       document.body.insertBefore(bgContainer, document.body.firstChild);
     }
 
@@ -3205,10 +3205,23 @@ ssh 进入服务器：.# apt-get install redir.# sudo iptables -A INPUT -p tcp �
     var activeLayer = layers[0];
     var nextLayer = layers[1];
 
-    // 设置初始背景
-    activeLayer.style.backgroundImage = 'url(' + bgImages[bgCurrentIndex] + ')';
-    activeLayer.classList.add('sal-bg-active');
-    nextLayer.classList.remove('sal-bg-active');
+    // 预加载第一张图片，加载完成后再显示（加载期间 CSS 渐变兜底）
+    var firstImg = new Image();
+    firstImg.onload = function() {
+      activeLayer.style.backgroundImage = 'url(' + bgImages[bgCurrentIndex] + ')';
+      activeLayer.classList.add('sal-bg-active');
+    };
+    firstImg.onerror = function() {
+      // 首张加载失败，尝试下一张
+      bgCurrentIndex = (bgCurrentIndex + 1) % bgImages.length;
+      var retryImg = new Image();
+      retryImg.onload = function() {
+        activeLayer.style.backgroundImage = 'url(' + bgImages[bgCurrentIndex] + ')';
+        activeLayer.classList.add('sal-bg-active');
+      };
+      retryImg.src = bgImages[bgCurrentIndex];
+    };
+    firstImg.src = bgImages[bgCurrentIndex];
 
     // 清除旧定时器
     if (bgTimerHandle) clearInterval(bgTimerHandle);
@@ -3223,7 +3236,7 @@ ssh 进入服务器：.# apt-get install redir.# sudo iptables -A INPUT -p tcp �
       img.onload = function() {
         next.style.backgroundImage = 'url(' + bgImages[bgCurrentIndex] + ')';
         next.classList.add('sal-bg-active');
-        current.classList.remove('sal-bg-active');
+        if (current) current.classList.remove('sal-bg-active');
       };
       img.src = bgImages[bgCurrentIndex];
     }, 300000); // 5 分钟 = 300000ms

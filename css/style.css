@@ -6885,8 +6885,8 @@ pre {
   --sal-bg-mask: rgba(240,242,245,0.02);
   --sal-header-bg: rgba(248,250,252,0.56);
   --sal-header-blur: 2px;
-  --sal-panel-bg: rgba(246,248,251,0.95);
-  --sal-panel-border: rgba(255,255,255,0.36);
+  --sal-panel-bg: #fff;
+  --sal-panel-border: rgba(15,23,42,0.08);
   --sal-panel-shadow: 0 12px 30px rgba(15,23,42,0.1);
   --sal-text-strong: #2f343c;
   --sal-text-body: #49515b;

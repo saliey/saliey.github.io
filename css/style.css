@@ -6935,6 +6935,12 @@ html {
   backdrop-filter: saturate(130%) blur(var(--sal-header-blur));
   -webkit-backdrop-filter: saturate(130%) blur(var(--sal-header-blur));
 }
+#l_header.auto.shadow.show {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  -webkit-opacity: 0 !important;
+  -moz-opacity: 0 !important;
+}
 #l_main > .post {
   background: #fff !important;
   border: 1px solid var(--sal-panel-border);

@@ -1626,7 +1626,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1773736532720),
+    lastupdate: new Date(1773737396075),
     sidebar: {
       for_page: [],
       for_post: ["toc"],
@@ -3233,14 +3233,15 @@ Qu...
       title.style.display = (titleText || hasLogo) ? '' : 'none';
     }
 
-    // 将搜索框移到最前面（在 menu 之前）
-    if (search && menu) {
-      navMain.insertBefore(search, menu);
-    } else if (search && title && title.parentNode === navMain) {
-      navMain.appendChild(search);
-    } else if (search) {
-      navMain.insertBefore(search, navMain.firstChild);
-    }
+    // 搜索框当前隐藏（CSS: .m_search { display: none }），跳过 DOM 移动
+    // 恢复搜索框时取消下面的注释：
+    // if (search && menu) {
+    //   navMain.insertBefore(search, menu);
+    // } else if (search && title && title.parentNode === navMain) {
+    //   navMain.appendChild(search);
+    // } else if (search) {
+    //   navMain.insertBefore(search, navMain.firstChild);
+    // }
 
     if (menu && menu.querySelectorAll('.menuitem').length === 0) {
       menu.style.display = 'none';

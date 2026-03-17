@@ -6896,6 +6896,11 @@ pre {
   --sal-search-rest-width: 196px;
   --sal-search-focus-width: 272px;
 }
+.m_search {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none !important;
+}
 body,
 html {
   background: transparent !important;
@@ -6934,20 +6939,16 @@ html {
   -webkit-backdrop-filter: saturate(130%) blur(var(--sal-header-blur));
 }
 #l_main > .post {
-  background: var(--sal-panel-bg-strong) !important;
+  background: #fff !important;
   border: 1px solid var(--sal-panel-border);
   box-shadow: var(--sal-panel-shadow);
   -webkit-box-shadow: var(--sal-panel-shadow);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
 }
 #l_side .widget {
-  background: var(--sal-panel-bg) !important;
+  background: rgba(246,248,251,0.95) !important;
   border: 1px solid var(--sal-panel-border);
   box-shadow: var(--sal-panel-shadow);
   -webkit-box-shadow: var(--sal-panel-shadow);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
 }
 .sal-bg-layer {
   position: absolute;
@@ -7134,9 +7135,7 @@ html {
   margin-bottom: 16px;
   border-radius: 14px;
   -webkit-border-radius: 14px;
-  background: var(--sal-panel-bg) !important;
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  background: rgba(246,248,251,0.95) !important;
   border: 1px solid var(--sal-panel-border);
   box-shadow: var(--sal-panel-shadow);
   -webkit-box-shadow: var(--sal-panel-shadow);
@@ -7306,12 +7305,10 @@ html {
   display: none !important;
 }
 .doc-index-layout .post-list .post {
-  background: var(--sal-panel-bg) !important;
+  background: rgba(246,248,251,0.95) !important;
   border: 1px solid var(--sal-panel-border);
   box-shadow: var(--sal-panel-shadow);
   -webkit-box-shadow: var(--sal-panel-shadow);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   -webkit-transition: transform 0.25s ease, box-shadow 0.25s ease;
   -khtml-transition: transform 0.25s ease, box-shadow 0.25s ease;

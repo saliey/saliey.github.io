@@ -1628,7 +1628,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1773737396075),
+    lastupdate: new Date(1773740424207),
     sidebar: {
       for_page: [],
       for_post: ["toc"],
@@ -2095,7 +2095,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <!-- Custom Files bodyBegin end-->
     <!-- front-matter body_begin begin -->
     <!-- front-matter body_begin end -->
-    <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
+    <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -2125,17 +2125,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 				</ul>
 			</div>
       
-      <div class="m_search">
-        <form name="searchform" class="form u-search-form">
-          <i class="icon fa-solid fa-search fa-fw"></i>
-          <input type="text" class="input u-search-input" placeholder="搜索文档..." />
-        </form>
-      </div>
-      
 
 			<ul class='switcher nav-list-h m-phone'>
-				
-					<li><a class="s-search fa-solid fa-search fa-fw" target="_self" href="/" onclick="return false;" title="search"></a></li>
 				
 				<li>
           <a class="s-menu fa-solid fa-bars fa-fw" target="_self" href="/" onclick="return false;" title="menu"></a>
@@ -2170,13 +2161,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   </div>
   <div class='bottom'>
     
-      <div class="m_search">
-        <form name="searchform" class="form u-search-form">
-          <input type="text" class="input u-search-input" placeholder="搜索文档..." />
-          <i class="icon fa-solid fa-search fa-fw"></i>
-        </form>
-      </div>
-    
     <div class='menu navigation'>
       <div class='list-h'>
         
@@ -2197,7 +2181,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper">
           
 <div id="l_main" class=''>
-  <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow blur article-type-post" id="post" itemscope itemprop="blogPost">
+  <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   <link itemprop="mainEntityOfPage" href="https://saliey.github.io/2025/05/30/Michael-Saylor-的-21-条财富路径/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="xxx">
@@ -2556,57 +2540,6 @@ AI领域发展迅速，2025年各领域有明确领先者，但竞争激烈，�
 
 <!-- optional -->
 
-  <script>
-  const SearchServiceDataPathRoot = ("/" || "/").endsWith("/") ?
-    "/" || "/" :
-    "//" || "/";
-  const SearchServiceDataPath = SearchServiceDataPathRoot + "content.json";
-
-  function loadSearchScript() {
-    // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
-    return volantis.js("/js/search/hexo.js");
-  }
-
-  function loadSearchService() {
-    loadSearchScript();
-    document.querySelectorAll(".input.u-search-input").forEach((e) => {
-      e.removeEventListener("focus", loadSearchService, false);
-    });
-
-    document.querySelectorAll(".u-search-form").forEach((e) => {
-      e.addEventListener("submit", (event) => {
-        event.preventDefault();
-      }, false);
-    });
-  }
-
-  // 打开并搜索 字符串 s
-  function OpenSearch(s) {
-    if (typeof SearchService === 'undefined')
-      loadSearchScript().then(() => {
-        SearchService.setQueryText(s);
-        SearchService.search();
-      });
-    else {
-      SearchService.setQueryText(s);
-      SearchService.search();
-    }
-  }
-
-  // 访问含有 ?s=xxx  的链接时打开搜索 // 与搜索引擎 structured data 相关: /scripts/helpers/structured-data/lib/config.js
-  if (window.location.search && /^\?s=/g.test(window.location.search)) {
-    let queryText = decodeURI(window.location.search)
-      .replace(/\ /g, "-")
-      .replace(/^\?s=/g, "");
-    OpenSearch(queryText);
-  }
-
-  // 搜索输入框获取焦点时加载搜索
-  document.querySelectorAll(".input.u-search-input").forEach((e) => {
-    e.addEventListener("focus", loadSearchService, false);
-  });
-</script>
-
 
 
 
@@ -2896,381 +2829,29 @@ AI领域发展迅速，2025年各领域有明确领先者，但竞争激烈，�
     <!-- import body_end end-->
     <!-- Custom Files bodyEnd begin-->
     <script>
-// === 导航栏 + 侧边栏 动态优化 ===
 (function() {
   'use strict';
-  var currentObserver = null;
-
-  function disconnectObserver() {
-    if (currentObserver) {
-      currentObserver.disconnect();
-      currentObserver = null;
-    }
-  }
-
-  function scrollEntryIntoView(target) {
-    var header = document.getElementById('l_header');
-    var offset = (header ? header.offsetHeight : 64) + 16;
-    var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
-    window.scrollTo({
-      top: Math.max(0, top),
-      behavior: 'smooth'
-    });
-  }
-
-  function getCardEntries() {
-    return Array.prototype.slice.call(document.querySelectorAll('.post-list .post')).map(function(card, index) {
-      var titleEl = card.querySelector('.article-title');
-      if (!titleEl) return null;
-
-      var dateText = '';
-      var timeEl = card.querySelector('time');
-      if (timeEl) {
-        dateText = timeEl.textContent.trim();
-      }
-      if (!dateText) {
-        var metaSpans = card.querySelectorAll('.meta span');
-        for (var i = 0; i < metaSpans.length; i++) {
-          var text = metaSpans[i].textContent.trim();
-          if (/\d{4}/.test(text)) {
-            dateText = text.replace(/^[^\d]*/, '');
-            break;
-          }
-        }
-      }
-
-      return {
-        index: index,
-        title: titleEl.textContent.trim(),
-        dateText: dateText,
-        target: card
-      };
-    }).filter(Boolean);
-  }
-
-  function getArchiveEntries() {
-    return Array.prototype.slice.call(document.querySelectorAll('.timenode')).map(function(node, index) {
-      var link = node.querySelector('a.meta');
-      if (!link) return null;
-
-      var clonedLink = link.cloneNode(true);
-      var timeEl = clonedLink.querySelector('time');
-      var dateText = '';
-      if (timeEl) {
-        dateText = timeEl.textContent.trim();
-        timeEl.remove();
-      }
-
-      return {
-        index: index,
-        title: clonedLink.textContent.trim(),
-        dateText: dateText,
-        target: node
-      };
-    }).filter(Boolean);
-  }
-
-  function getPageEntries() {
-    var cardEntries = getCardEntries();
-    if (cardEntries.length > 0) {
-      return cardEntries;
-    }
-    return getArchiveEntries();
-  }
 
   function fixNavbar() {
     var navMain = document.querySelector('.nav-main');
     if (!navMain) return;
 
-    var search = navMain.querySelector('.m_search');
     var menu = navMain.querySelector('.menu.navigation');
     var title = navMain.querySelector('a.title');
 
-    // 仅在 title 完全为空时隐藏，保留轻量站点标识避免搜索框独占整行
     if (title) {
       var titleText = title.textContent.replace(/\s+/g, '').trim();
       var hasLogo = !!title.querySelector('img');
       title.style.display = (titleText || hasLogo) ? '' : 'none';
     }
 
-    // 搜索框当前隐藏（CSS: .m_search { display: none }），跳过 DOM 移动
-    // 恢复搜索框时取消下面的注释：
-    // if (search && menu) {
-    //   navMain.insertBefore(search, menu);
-    // } else if (search && title && title.parentNode === navMain) {
-    //   navMain.appendChild(search);
-    // } else if (search) {
-    //   navMain.insertBefore(search, navMain.firstChild);
-    // }
-
     if (menu && menu.querySelectorAll('.menuitem').length === 0) {
       menu.style.display = 'none';
     }
   }
 
-  function buildSidebar() {
-    disconnectObserver();
-    document.body.classList.remove('doc-index-layout');
-    document.body.classList.remove('sal-home-track');
-
-    // 清除之前的注入（Pjax 兼容）
-    var old = document.querySelector('#l_side .sidebar-article-list');
-    if (old) old.remove();
-
-    // === 修复 Volantis 隐藏侧边栏问题 ===
-    // 当 for_page: [] 时，Volantis 会给 #l_main 加上 no_sidebar 类
-    // 从而通过 CSS (~#l_side { display: none }) 隐藏整个侧边栏容器
-    var lMain = document.getElementById('l_main');
-
-    // === 1. 构建当前页面文章标题列表 ===
-    var entries = getPageEntries();
-    if (!entries || entries.length === 0) {
-      // 没有文章条目时，恢复 no_sidebar（避免空侧边栏占位）
-      if (lMain) lMain.classList.add('no_sidebar');
-      return;
-    }
-    document.body.classList.add('doc-index-layout');
-    document.body.classList.add('sal-home-track');
-
-    // 移除 no_sidebar 类让侧边栏容器可见
-    if (lMain) lMain.classList.remove('no_sidebar');
-
-    var sidebarContainer = document.querySelector('#l_side');
-    if (!sidebarContainer) return;
-    // 确保侧边栏容器可见（以防 CSS 仍然隐藏它）
-    sidebarContainer.style.display = '';
-
-    var listWidget = document.createElement('section');
-    listWidget.className = 'widget desktop mobile sidebar-article-list';
-    listWidget.innerHTML = '<div class="sal-header"><i class="fa-solid fa-file-alt fa-fw" aria-hidden="true"></i><span>本页文章</span></div>';
-
-    var listUl = document.createElement('ul');
-    listUl.className = 'sidebar-articles';
-
-    entries.forEach(function(entry) {
-      var li = document.createElement('li');
-      li.className = 'sidebar-article-item';
-      li.setAttribute('data-index', entry.index);
-      li.innerHTML =
-        '<div class="sidebar-article-title">' + entry.title + '</div>' +
-        (entry.dateText ? '<div class="sidebar-article-date">' + entry.dateText + '</div>' : '');
-
-      li.addEventListener('click', function() {
-        scrollEntryIntoView(entry.target);
-        document.querySelectorAll('.sidebar-article-item.active').forEach(function(el) {
-          el.classList.remove('active');
-        });
-        li.classList.add('active');
-      });
-
-      listUl.appendChild(li);
-    });
-
-    listWidget.appendChild(listUl);
-
-    // === 2. 侧边栏分页导航 ===
-    var currentPage = 1;
-    var totalPages = 1;
-
-    var currentInfo = document.querySelector('.prev-next .current');
-    if (currentInfo) {
-      var parts = currentInfo.textContent.trim().split('/');
-      if (parts.length === 2) {
-        currentPage = parseInt(parts[0].trim()) || 1;
-        totalPages = parseInt(parts[1].trim()) || 1;
-      }
-    }
-
-    var pathMatch = window.location.pathname.match(/\/page\/(\d+)/);
-    if (pathMatch) currentPage = parseInt(pathMatch[1]);
-
-    var baseUrl = window.location.origin;
-    var firstUrl = baseUrl + '/';
-    var lastUrl = totalPages > 1 ? baseUrl + '/page/' + totalPages + '/' : firstUrl;
-    var prevUrl = currentPage > 1 ? (currentPage === 2 ? firstUrl : baseUrl + '/page/' + (currentPage - 1) + '/') : '';
-    var nextUrl = currentPage < totalPages ? baseUrl + '/page/' + (currentPage + 1) + '/' : '';
-
-    var pag = document.createElement('div');
-    pag.className = 'sidebar-pagination';
-    pag.innerHTML =
-      '<a class="sp-btn' + (currentPage <= 1 ? ' disabled' : '') + '" href="' + firstUrl + '" title="首页"><i class="fa-solid fa-angle-double-left"></i></a>' +
-      '<a class="sp-btn' + (!prevUrl ? ' disabled' : '') + '" href="' + (prevUrl || 'javascript:void(0)') + '" title="上一页"><i class="fa-solid fa-angle-left"></i></a>' +
-      '<span class="sp-info">' + currentPage + ' / ' + totalPages + '</span>' +
-      '<a class="sp-btn' + (!nextUrl ? ' disabled' : '') + '" href="' + (nextUrl || 'javascript:void(0)') + '" title="下一页"><i class="fa-solid fa-angle-right"></i></a>' +
-      '<a class="sp-btn' + (currentPage >= totalPages ? ' disabled' : '') + '" href="' + lastUrl + '" title="尾页"><i class="fa-solid fa-angle-double-right"></i></a>';
-
-    listWidget.appendChild(pag);
-
-    // 插入侧边栏最前面
-    sidebarContainer.insertBefore(listWidget, sidebarContainer.firstChild);
-
-    // === 3. 隐藏底部分页 ===
-    var bottomPag = document.querySelector('.prev-next');
-    if (bottomPag) bottomPag.style.display = 'none';
-
-    // === 4. IntersectionObserver ===
-    if ('IntersectionObserver' in window) {
-      var allEntries = entries; // 避免与 observer 回调参数重名
-      currentObserver = new IntersectionObserver(function(obsEntries) {
-        obsEntries.forEach(function(obsEntry) {
-          if (obsEntry.isIntersecting) {
-            var idx = -1;
-            for (var i = 0; i < allEntries.length; i++) {
-              if (allEntries[i].target === obsEntry.target) { idx = allEntries[i].index; break; }
-            }
-            if (idx >= 0) {
-              document.querySelectorAll('.sidebar-article-item.active').forEach(function(el) {
-                el.classList.remove('active');
-              });
-              var item = document.querySelector('.sidebar-article-item[data-index="' + idx + '"]');
-              if (item) {
-                item.classList.add('active');
-              }
-            }
-          }
-        });
-      }, { threshold: 0.3, rootMargin: '-60px 0px 0px 0px' });
-
-      entries.forEach(function(entry) { currentObserver.observe(entry.target); });
-    }
-  }
-
-  // === 背景图片轮播系统 ===
-  var bgImages = [
-    'https://gcore.jsdelivr.net/gh/MHG-LAB/cron@gh-pages/bing/bing.jpg',
-    'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1920&q=80',
-    'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1920&q=80',
-    'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1920&q=80',
-    'https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=1920&q=80',
-    'https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=1920&q=80',
-    'https://images.unsplash.com/photo-1500534314263-e91a0a8d59db?w=1920&q=80',
-    'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1920&q=80',
-    'https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=1920&q=80',
-    'https://images.unsplash.com/photo-1465056836900-8f1e940b3925?w=1920&q=80',
-    'https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=1920&q=80',
-    'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80',
-    'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1920&q=80',
-    'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1920&q=80',
-    'https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?w=1920&q=80'
-  ];
-
-  var bgTimerHandle = null;
-  var bgCurrentIndex = 0;
-  var bgInitialized = false;
-  var BG_STORAGE_KEY = 'sal_bg_state';
-
-  function shuffleArray(arr) {
-    for (var i = arr.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
-    }
-    return arr;
-  }
-
-  // 判断是否为手动刷新（F5 / Cmd+R）
-  function isManualReload() {
-    try {
-      var navEntry = performance.getEntriesByType('navigation')[0];
-      return navEntry && navEntry.type === 'reload';
-    } catch (e) { return false; }
-  }
-
-  // 保存当前背景状态到 sessionStorage
-  function saveBgState() {
-    try {
-      sessionStorage.setItem(BG_STORAGE_KEY, JSON.stringify({
-        order: bgImages.slice(),
-        index: bgCurrentIndex
-      }));
-    } catch (e) {}
-  }
-
-  // 从 sessionStorage 恢复背景状态（仅页面导航时使用，刷新时跳过）
-  function restoreBgState() {
-    try {
-      var raw = sessionStorage.getItem(BG_STORAGE_KEY);
-      if (!raw) return false;
-      var state = JSON.parse(raw);
-      if (!Array.isArray(state.order) || state.order.length !== bgImages.length) return false;
-      // 恢复保存的顺序和索引
-      for (var i = 0; i < state.order.length; i++) bgImages[i] = state.order[i];
-      bgCurrentIndex = state.index || 0;
-      return true;
-    } catch (e) { return false; }
-  }
-
-  function setupBackground() {
-    // 创建/获取背景容器
-    var bgContainer = document.getElementById('sal-bg-container');
-    if (!bgContainer) {
-      bgContainer = document.createElement('div');
-      bgContainer.id = 'sal-bg-container';
-      bgContainer.innerHTML = '<div class="sal-bg-layer"></div><div class="sal-bg-layer"></div>';
-      document.body.insertBefore(bgContainer, document.body.firstChild);
-    }
-
-    // Pjax 导航时若已初始化则跳过，保持背景图不变
-    if (bgInitialized) return;
-    bgInitialized = true;
-
-    // 背景切换触发条件（仅以下两种情况会换图）：
-    // 1. 主动刷新页面（F5 / Cmd+R）→ 重新打乱顺序
-    // 2. 5 分钟定时轮换 → 切到下一张
-    // 其余情况（点击翻页、点击文章等页面跳转）→ 保持当前背景不变
-    var shouldReshuffle = isManualReload() || !restoreBgState();
-
-    if (shouldReshuffle) {
-      shuffleArray(bgImages);
-      bgCurrentIndex = 0;
-      saveBgState();
-    }
-
-    var layers = bgContainer.querySelectorAll('.sal-bg-layer');
-    var activeLayer = layers[0];
-
-    // 预加载当前图片，加载完成后再显示（加载期间 CSS 渐变兜底）
-    var firstImg = new Image();
-    firstImg.onload = function() {
-      activeLayer.style.backgroundImage = 'url(' + bgImages[bgCurrentIndex] + ')';
-      activeLayer.classList.add('sal-bg-active');
-    };
-    firstImg.onerror = function() {
-      // 加载失败，尝试下一张
-      bgCurrentIndex = (bgCurrentIndex + 1) % bgImages.length;
-      saveBgState();
-      var retryImg = new Image();
-      retryImg.onload = function() {
-        activeLayer.style.backgroundImage = 'url(' + bgImages[bgCurrentIndex] + ')';
-        activeLayer.classList.add('sal-bg-active');
-      };
-      retryImg.src = bgImages[bgCurrentIndex];
-    };
-    firstImg.src = bgImages[bgCurrentIndex];
-
-    // 清除旧定时器
-    if (bgTimerHandle) clearInterval(bgTimerHandle);
-
-    // 每 5 分钟切换一次
-    bgTimerHandle = setInterval(function() {
-      bgCurrentIndex = (bgCurrentIndex + 1) % bgImages.length;
-      saveBgState();
-      var current = bgContainer.querySelector('.sal-bg-layer.sal-bg-active');
-      var next = bgContainer.querySelector('.sal-bg-layer:not(.sal-bg-active)');
-      // 预加载下一张
-      var img = new Image();
-      img.onload = function() {
-        next.style.backgroundImage = 'url(' + bgImages[bgCurrentIndex] + ')';
-        next.classList.add('sal-bg-active');
-        if (current) current.classList.remove('sal-bg-active');
-      };
-      img.src = bgImages[bgCurrentIndex];
-    }, 300000); // 5 分钟 = 300000ms
-  }
-
   function init() {
     fixNavbar();
-    buildSidebar();
-    setupBackground();
   }
 
   if (document.readyState === 'loading') {
@@ -3279,9 +2860,7 @@ AI领域发展迅速，2025年各领域有明确领先者，但竞争激烈，�
     init();
   }
 
-  document.addEventListener('pjax:complete', function() {
-    setTimeout(init, 300);
-  });
+  document.addEventListener('pjax:complete', init);
 })();
 </script>
 

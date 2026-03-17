@@ -1626,7 +1626,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1773736080102),
+    lastupdate: new Date(1773736532720),
     sidebar: {
       for_page: [],
       for_post: ["toc"],
@@ -3162,6 +3162,7 @@ ip2world 的优惠码：UFnrTxOMGzobVyi2
   var bgTimerHandle = null;
   var bgCurrentIndex = 0;
   var bgInitialized = false;
+  var BG_STORAGE_KEY = 'sal_bg_state';
 
   function shuffleArray(arr) {
     for (var i = arr.length - 1; i > 0; i--) {
@@ -3169,6 +3170,38 @@ ip2world 的优惠码：UFnrTxOMGzobVyi2
       var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
     }
     return arr;
+  }
+
+  // 判断是否为手动刷新（F5 / Cmd+R）
+  function isManualReload() {
+    try {
+      var navEntry = performance.getEntriesByType('navigation')[0];
+      return navEntry && navEntry.type === 'reload';
+    } catch (e) { return false; }
+  }
+
+  // 保存当前背景状态到 sessionStorage
+  function saveBgState() {
+    try {
+      sessionStorage.setItem(BG_STORAGE_KEY, JSON.stringify({
+        order: bgImages.slice(),
+        index: bgCurrentIndex
+      }));
+    } catch (e) {}
+  }
+
+  // 从 sessionStorage 恢复背景状态（仅页面导航时使用，刷新时跳过）
+  function restoreBgState() {
+    try {
+      var raw = sessionStorage.getItem(BG_STORAGE_KEY);
+      if (!raw) return false;
+      var state = JSON.parse(raw);
+      if (!Array.isArray(state.order) || state.order.length !== bgImages.length) return false;
+      // 恢复保存的顺序和索引
+      for (var i = 0; i < state.order.length; i++) bgImages[i] = state.order[i];
+      bgCurrentIndex = state.index || 0;
+      return true;
+    } catch (e) { return false; }
   }
 
   function setupBackground() {
@@ -3182,27 +3215,34 @@ ip2world 的优惠码：UFnrTxOMGzobVyi2
     }
 
     // Pjax 导航时若已初始化则跳过，保持背景图不变
-    // 背景图仅在硬刷新或首次加载时重新打乱
     if (bgInitialized) return;
     bgInitialized = true;
 
-    // 首次加载时打乱顺序
-    shuffleArray(bgImages);
-    bgCurrentIndex = 0;
+    // 背景切换触发条件（仅以下两种情况会换图）：
+    // 1. 主动刷新页面（F5 / Cmd+R）→ 重新打乱顺序
+    // 2. 5 分钟定时轮换 → 切到下一张
+    // 其余情况（点击翻页、点击文章等页面跳转）→ 保持当前背景不变
+    var shouldReshuffle = isManualReload() || !restoreBgState();
+
+    if (shouldReshuffle) {
+      shuffleArray(bgImages);
+      bgCurrentIndex = 0;
+      saveBgState();
+    }
 
     var layers = bgContainer.querySelectorAll('.sal-bg-layer');
     var activeLayer = layers[0];
-    var nextLayer = layers[1];
 
-    // 预加载第一张图片，加载完成后再显示（加载期间 CSS 渐变兜底）
+    // 预加载当前图片，加载完成后再显示（加载期间 CSS 渐变兜底）
     var firstImg = new Image();
     firstImg.onload = function() {
       activeLayer.style.backgroundImage = 'url(' + bgImages[bgCurrentIndex] + ')';
       activeLayer.classList.add('sal-bg-active');
     };
     firstImg.onerror = function() {
-      // 首张加载失败，尝试下一张
+      // 加载失败，尝试下一张
       bgCurrentIndex = (bgCurrentIndex + 1) % bgImages.length;
+      saveBgState();
       var retryImg = new Image();
       retryImg.onload = function() {
         activeLayer.style.backgroundImage = 'url(' + bgImages[bgCurrentIndex] + ')';
@@ -3218,6 +3258,7 @@ ip2world 的优惠码：UFnrTxOMGzobVyi2
     // 每 5 分钟切换一次
     bgTimerHandle = setInterval(function() {
       bgCurrentIndex = (bgCurrentIndex + 1) % bgImages.length;
+      saveBgState();
       var current = bgContainer.querySelector('.sal-bg-layer.sal-bg-active');
       var next = bgContainer.querySelector('.sal-bg-layer:not(.sal-bg-active)');
       // 预加载下一张

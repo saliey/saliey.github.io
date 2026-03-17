@@ -6882,69 +6882,61 @@ pre {
   word-break: break-all !important;
 }
 :root {
-  --sal-header-bg: rgba(255,255,255,0.96);
-  --sal-panel-bg: #fff;
-  --sal-panel-border: rgba(15,23,42,0.08);
-  --sal-panel-shadow: 0 10px 24px rgba(15,23,42,0.06);
-  --sal-panel-shadow-hover: 0 14px 28px rgba(15,23,42,0.08);
-  --sal-text-strong: #1f2937;
-  --sal-text-body: #374151;
-  --sal-text-muted: #4b5563;
+  --sal-bg-mask: rgba(240,242,245,0.02);
+  --sal-header-bg: rgba(248,250,252,0.56);
+  --sal-header-blur: 2px;
+  --sal-panel-bg: rgba(246,248,251,0.95);
+  --sal-panel-border: rgba(255,255,255,0.36);
+  --sal-panel-shadow: 0 12px 30px rgba(15,23,42,0.1);
+  --sal-text-strong: #2f343c;
+  --sal-text-body: #49515b;
+  --sal-text-muted: #5b6470;
   --sal-meta: #6b7280;
+}
+.m_search {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none !important;
+}
+body,
+html {
+  background: transparent !important;
+}
+#l_body {
+  background: transparent !important;
+}
+#sal-bg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  overflow: hidden;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 30%, #f093fb 60%, #4facfe 100%);
+}
+#sal-bg-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--sal-bg-mask);
+  z-index: 1;
+}
+#safearea,
+.body-wrapper {
+  background: transparent !important;
 }
 #l_header {
   background: var(--sal-header-bg) !important;
-  border-bottom: 1px solid rgba(15,23,42,0.06);
-  box-shadow: 0 8px 18px rgba(15,23,42,0.04);
-  -webkit-box-shadow: 0 8px 18px rgba(15,23,42,0.04);
-}
-#l_header .nav-sub {
-  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-  display: none !important;
-}
-#l_header .nav-main {
-  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-  display: -ms-flexbox /* TWEENER - IE 10 */;
-  display: -webkit-flex /* NEW - Chrome */;
-  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
-  display: flex !important;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 14px !important;
-}
-#l_header .nav-main > a.title {
-  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-  display: -ms-inline-flexbox /* TWEENER - IE 10 */;
-  display: -webkit-inline-flex /* NEW - Chrome */;
-  display: inline-flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
-  display: inline-flex !important;
-  align-items: center;
-  min-width: 0;
-  margin-right: auto;
-  padding: 0 !important;
-  color: var(--sal-text-strong);
-  font-size: 0.94rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-}
-#l_header .nav-main > a.title img {
-  height: 28px;
-}
-#l_header .menu.navigation {
-  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-  display: none !important;
-}
-#l_header .nav-main > .switcher {
-  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
-  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
-  display: none !important;
+  border-bottom: 1px solid rgba(255,255,255,0.18);
+  backdrop-filter: saturate(130%) blur(var(--sal-header-blur));
+  -webkit-backdrop-filter: saturate(130%) blur(var(--sal-header-blur));
 }
 #l_main > .post {
-  background: var(--sal-panel-bg) !important;
+  background: #fff !important;
   border: 1px solid var(--sal-panel-border);
   box-shadow: var(--sal-panel-shadow);
   -webkit-box-shadow: var(--sal-panel-shadow);
@@ -6955,36 +6947,364 @@ pre {
   box-shadow: var(--sal-panel-shadow);
   -webkit-box-shadow: var(--sal-panel-shadow);
 }
-.post-list .post {
+.sal-bg-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  -webkit-transition: opacity 1.5s ease-in-out;
+  -khtml-transition: opacity 1.5s ease-in-out;
+  -moz-transition: opacity 1.5s ease-in-out;
+  -o-transition: opacity 1.5s ease-in-out;
+  -ms-transition: opacity 1.5s ease-in-out;
+}
+.sal-bg-layer.sal-bg-active {
+  opacity: 1;
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+}
+[data-dark-mode] #sal-bg-container::after,
+.dark #sal-bg-container::after {
+  background: rgba(22,27,34,0.7);
+}
+[data-dark-mode] #l_header,
+.dark #l_header {
+  background: rgba(22,27,34,0.8) !important;
+}
+[data-dark-mode] #l_main > .post,
+.dark #l_main > .post {
+  background: rgba(28,33,40,0.98) !important;
+}
+[data-dark-mode] #l_side .widget,
+.dark #l_side .widget,
+[data-dark-mode] .post-list .post,
+.dark .post-list .post {
+  background: rgba(28,33,40,0.92) !important;
+}
+.sal-home-track .body-wrapper {
+  position: relative;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  -khtml-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -o-justify-content: space-between;
+  -ms-justify-content: space-between;
+  align-items: flex-start;
+}
+.sal-home-track #l_main {
+  width: calc(100% - 192px);
+  max-width: calc(100% - 192px);
+  padding-left: 0;
+}
+.sal-home-track #l_side {
+  width: 192px;
+  -webkit-box-flex: 0;
+  -moz-box-flex: 0;
+  -webkit-flex: 0 0;
+  -ms-flex: 0 0;
+  flex: 0 0;
+  min-width: 192px;
+}
+.doc-index-layout #l_side {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex !important;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.doc-index-layout .l_header .nav-sub {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none !important;
+}
+.doc-index-layout .l_header .nav-main {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex !important;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 14px !important;
+}
+.doc-index-layout .l_header .nav-main > a.title {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-inline-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-inline-flex /* NEW - Chrome */;
+  display: inline-flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: inline-flex !important;
+  align-items: center;
+  min-width: 0;
+  margin-right: auto;
+  padding: 0 !important;
+  color: rgba(47,52,60,0.82);
+  font-size: 0.94rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.doc-index-layout .l_header .nav-main > a.title img {
+  height: 28px;
+}
+.doc-index-layout .l_header .menu.navigation {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none !important;
+}
+.doc-index-layout .l_header .nav-main > .switcher {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none !important;
+}
+.doc-index-layout #l_side {
+  position: sticky;
+  top: 76px;
+  align-self: flex-start;
+  overflow: visible;
+}
+.doc-index-layout .sidebar-article-list {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 0;
+  max-height: calc(100vh - 104px);
+  padding: 16px;
+  margin-bottom: 16px;
+  border-radius: 14px;
+  -webkit-border-radius: 14px;
   background: var(--sal-panel-bg) !important;
   border: 1px solid var(--sal-panel-border);
   box-shadow: var(--sal-panel-shadow);
   -webkit-box-shadow: var(--sal-panel-shadow);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  -webkit-transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  -khtml-transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  -moz-transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  -o-transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  -ms-transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
-.post-list .post .article-title a {
+.doc-index-layout .sidebar-article-list .sal-header {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(15,23,42,0.08);
+  font-size: 0.92rem;
+  font-weight: 600;
   color: var(--sal-text-strong);
 }
-.post-list .post .article-desc {
+.doc-index-layout .sidebar-article-list .sal-header i {
+  color: var(--color-theme, #2d5f8a);
+}
+.doc-index-layout .sidebar-articles {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1 1;
+  -ms-flex: 1 1;
+  flex: 1 1;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+.doc-index-layout .sidebar-articles::-webkit-scrollbar {
+  width: 4px;
+}
+.doc-index-layout .sidebar-articles::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  -webkit-border-radius: 999px;
+  background: rgba(45,95,138,0.2);
+}
+.doc-index-layout .sidebar-article-item {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  -webkit-transition: background 0.2s ease, transform 0.2s ease;
+  -khtml-transition: background 0.2s ease, transform 0.2s ease;
+  -moz-transition: background 0.2s ease, transform 0.2s ease;
+  -o-transition: background 0.2s ease, transform 0.2s ease;
+  -ms-transition: background 0.2s ease, transform 0.2s ease;
+}
+.doc-index-layout .sidebar-article-item + .sidebar-article-item {
+  margin-top: 4px;
+}
+.doc-index-layout .sidebar-article-item:hover {
+  background: rgba(45,95,138,0.06);
+  transform: translateX(1px);
+  -webkit-transform: translateX(1px);
+  -khtml-transform: translateX(1px);
+  -moz-transform: translateX(1px);
+  -o-transform: translateX(1px);
+  -ms-transform: translateX(1px);
+}
+.doc-index-layout .sidebar-article-item.active {
+  background: rgba(45,95,138,0.08);
+}
+.doc-index-layout .sidebar-article-title {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -webkit-box;
+  overflow: hidden;
+  color: var(--sal-text-muted);
+  font-size: 0.86rem;
+  line-height: 1.5;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.doc-index-layout .sidebar-article-item.active .sidebar-article-title {
+  color: var(--color-theme, #2d5f8a);
+  font-weight: 600;
+}
+.doc-index-layout .sidebar-article-date {
+  margin-top: 4px;
+  color: var(--sal-meta);
+  font-size: 0.7rem;
+  line-height: 1.2;
+}
+.doc-index-layout .sidebar-pagination {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-justify-content: center;
+  -khtml-justify-content: center;
+  -moz-justify-content: center;
+  -o-justify-content: center;
+  -ms-justify-content: center;
+  gap: 6px;
+  flex-shrink: 0;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(15,23,42,0.08);
+}
+.doc-index-layout .sidebar-pagination .sp-btn {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-justify-content: center;
+  -khtml-justify-content: center;
+  -moz-justify-content: center;
+  -o-justify-content: center;
+  -ms-justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  color: var(--sal-text-muted);
+  background: rgba(15,23,42,0.04);
+  text-decoration: none !important;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  -webkit-transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  -khtml-transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  -moz-transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  -o-transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  -ms-transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.doc-index-layout .sidebar-pagination .sp-btn:hover:not(.disabled) {
+  color: #fff;
+  background: var(--color-theme, #2d5f8a);
+  transform: translateY(-1px);
+  -webkit-transform: translateY(-1px);
+  -khtml-transform: translateY(-1px);
+  -moz-transform: translateY(-1px);
+  -o-transform: translateY(-1px);
+  -ms-transform: translateY(-1px);
+}
+.doc-index-layout .sidebar-pagination .sp-btn.disabled {
+  opacity: 0.35;
+  -webkit-opacity: 0.35;
+  -moz-opacity: 0.35;
+  pointer-events: none;
+}
+.doc-index-layout .sidebar-pagination .sp-info {
+  min-width: 44px;
+  color: var(--sal-meta);
+  font-size: 0.8rem;
+  text-align: center;
+}
+.doc-index-layout #l_main > .prev-next {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none !important;
+}
+.doc-index-layout .post-list .post {
+  background: var(--sal-panel-bg) !important;
+  border: 1px solid var(--sal-panel-border);
+  box-shadow: var(--sal-panel-shadow);
+  -webkit-box-shadow: var(--sal-panel-shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  -webkit-transition: transform 0.25s ease, box-shadow 0.25s ease;
+  -khtml-transition: transform 0.25s ease, box-shadow 0.25s ease;
+  -moz-transition: transform 0.25s ease, box-shadow 0.25s ease;
+  -o-transition: transform 0.25s ease, box-shadow 0.25s ease;
+  -ms-transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.doc-index-layout .post-list .post .article-title a {
+  color: var(--sal-text-strong);
+}
+.doc-index-layout .post-list .post .article-desc {
   color: var(--sal-text-body);
 }
-.post-list .post .meta-v3,
-.post-list .post .meta-v3 a,
-.post-list .post .meta-v3 time {
+.doc-index-layout .post-list .post .meta-v3,
+.doc-index-layout .post-list .post .meta-v3 a,
+.doc-index-layout .post-list .post .meta-v3 time {
   color: var(--sal-meta);
 }
-.post-list .post .readmore {
+.doc-index-layout .post-list .post .readmore {
   color: #41576c;
 }
-.post-list .post:hover {
-  border-color: rgba(45,95,138,0.18);
-  box-shadow: var(--sal-panel-shadow-hover);
-  -webkit-box-shadow: var(--sal-panel-shadow-hover);
+.doc-index-layout .post-list .post:hover {
+  transform: translateY(-2px);
+  -webkit-transform: translateY(-2px);
+  -khtml-transform: translateY(-2px);
+  -moz-transform: translateY(-2px);
+  -o-transform: translateY(-2px);
+  -ms-transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(15,23,42,0.12);
+  -webkit-box-shadow: 0 12px 30px rgba(15,23,42,0.12);
 }
 #post .article-meta .title,
 #post .article-meta .title a {
@@ -7000,19 +7320,21 @@ pre {
 #post #post-body h3 {
   color: var(--sal-text-strong);
 }
-[data-dark-mode] #l_header,
-.dark #l_header {
-  background: rgba(22,27,34,0.94) !important;
-  border-bottom-color: rgba(230,237,243,0.08);
-}
-[data-dark-mode] #l_main > .post,
-.dark #l_main > .post,
-[data-dark-mode] #l_side .widget,
-.dark #l_side .widget,
-[data-dark-mode] .post-list .post,
-.dark .post-list .post {
-  background: rgba(28,33,40,0.98) !important;
-  border-color: rgba(230,237,243,0.08);
+@media screen and (max-width: 1024px) {
+  .sal-home-track #l_main {
+    width: 100%;
+    max-width: 100%;
+  }
+  .sal-home-track #l_side {
+    width: 100%;
+    min-width: 0;
+    flex-basis: 100%;
+  }
+  .doc-index-layout .l_header .nav-main > a.title {
+    display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+    display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+    display: none !important;
+  }
 }
 .l_footer {
   padding: 20px 0;
@@ -7020,4 +7342,19 @@ pre {
   opacity: 0.8;
   -webkit-opacity: 0.8;
   -moz-opacity: 0.8;
+}
+@media screen and (max-width: 768px) {
+  .doc-index-layout .l_header .nav-main {
+    gap: 0;
+  }
+  .doc-index-layout #l_side {
+    position: static;
+    top: auto;
+  }
+  .doc-index-layout .sidebar-article-list {
+    max-height: none;
+  }
+  .doc-index-layout .sidebar-articles {
+    max-height: 320px;
+  }
 }

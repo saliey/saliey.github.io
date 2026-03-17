@@ -6942,13 +6942,13 @@ html {
   -moz-opacity: 0 !important;
 }
 #l_main > .post {
-  background: #c3c7c4 !important;
+  background: #cedbcf !important;
   border: 1px solid var(--sal-panel-border);
   box-shadow: var(--sal-panel-shadow);
   -webkit-box-shadow: var(--sal-panel-shadow);
 }
 #l_side .widget {
-  background: #c3c7c4 !important;
+  background: #cedbcf !important;
   border: 1px solid var(--sal-panel-border);
   box-shadow: var(--sal-panel-shadow);
   -webkit-box-shadow: var(--sal-panel-shadow);
@@ -7107,7 +7107,7 @@ html {
   margin-bottom: 16px;
   border-radius: 14px;
   -webkit-border-radius: 14px;
-  background: #c3c7c4 !important;
+  background: #cedbcf !important;
   border: 1px solid var(--sal-panel-border);
   box-shadow: var(--sal-panel-shadow);
   -webkit-box-shadow: var(--sal-panel-shadow);
@@ -7277,7 +7277,7 @@ html {
   display: none !important;
 }
 .doc-index-layout .post-list .post {
-  background: #c3c7c4 !important;
+  background: #cedbcf !important;
   border: 1px solid var(--sal-panel-border);
   box-shadow: var(--sal-panel-shadow);
   -webkit-box-shadow: var(--sal-panel-shadow);

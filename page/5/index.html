@@ -1626,7 +1626,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1773800631050),
+    lastupdate: new Date(1773801068699),
     sidebar: {
       for_page: [],
       for_post: ["toc"],
@@ -3461,8 +3461,107 @@ IP 地址的第六版，由 128 位构成，以解决 IPv4 地址耗尽的问题
 
     // === 1. 构建当前页面文章标题列表 ===
     var entries = getPageEntries();
+    var isArticlePage = !!document.getElementById('post');
+
     if (!entries || entries.length === 0) {
-      if (lMain) lMain.classList.add('no_sidebar');
+      if (!isArticlePage) {
+        if (lMain) lMain.classList.add('no_sidebar');
+        return;
+      }
+      // 文章详情页：构建导航侧栏
+      document.body.classList.add('doc-index-layout');
+      document.body.classList.add('sal-home-track');
+      if (lMain) lMain.classList.remove('no_sidebar');
+
+      var sidebarContainer = document.querySelector('#l_side');
+      if (!sidebarContainer) return;
+      sidebarContainer.style.display = '';
+
+      var navWidget = document.createElement('section');
+      navWidget.className = 'widget desktop mobile sidebar-article-list';
+      navWidget.innerHTML = '<div class="sal-header"><i class="fa-solid fa-compass fa-fw" aria-hidden="true"></i><span>导航</span></div>';
+
+      var navUl = document.createElement('ul');
+      navUl.className = 'sidebar-articles';
+
+      // 返回首页
+      var homeLi = document.createElement('li');
+      homeLi.className = 'sidebar-article-item';
+      homeLi.innerHTML = '<div class="sidebar-article-title"><i class="fa-solid fa-home" style="margin-right:6px;font-size:0.8rem"></i>返回首页</div>';
+      homeLi.addEventListener('click', function() { window.location.href = '/'; });
+      navUl.appendChild(homeLi);
+
+      // 提取页面内 h2/h3 生成目录
+      var headings = document.querySelectorAll('#post-body h2, #post-body h3');
+      if (headings.length > 0) {
+        var tocSep = document.createElement('li');
+        tocSep.className = 'sidebar-article-item';
+        tocSep.style.cssText = 'border-top:1px solid rgba(15,23,42,0.08);margin-top:6px;padding-top:8px;pointer-events:none;';
+        tocSep.innerHTML = '<div class="sidebar-article-title" style="font-size:0.78rem;color:var(--sal-meta)">本文目录</div>';
+        navUl.appendChild(tocSep);
+
+        headings.forEach(function(h, i) {
+          var li = document.createElement('li');
+          li.className = 'sidebar-article-item';
+          if (h.tagName === 'H3') li.style.paddingLeft = '20px';
+          li.innerHTML = '<div class="sidebar-article-title" style="-webkit-line-clamp:1">' + h.textContent.trim() + '</div>';
+          li.addEventListener('click', function() {
+            scrollEntryIntoView(h);
+            document.querySelectorAll('.sidebar-article-item.active').forEach(function(el) { el.classList.remove('active'); });
+            li.classList.add('active');
+          });
+          navUl.appendChild(li);
+        });
+
+        // IntersectionObserver 高亮当前标题
+        if ('IntersectionObserver' in window) {
+          currentObserver = new IntersectionObserver(function(obsEntries) {
+            obsEntries.forEach(function(obsEntry) {
+              if (obsEntry.isIntersecting) {
+                var target = obsEntry.target;
+                var allH = Array.prototype.slice.call(headings);
+                var idx = allH.indexOf(target);
+                if (idx >= 0) {
+                  document.querySelectorAll('.sidebar-article-item.active').forEach(function(el) { el.classList.remove('active'); });
+                  // +2 因为前面有首页和分隔条目
+                  var items = navUl.querySelectorAll('.sidebar-article-item');
+                  if (items[idx + 2]) items[idx + 2].classList.add('active');
+                }
+              }
+            });
+          }, { threshold: 0.1, rootMargin: '-60px 0px -70% 0px' });
+          headings.forEach(function(h) { currentObserver.observe(h); });
+        }
+      }
+
+      // 上一篇 / 下一篇
+      var prevLink = document.querySelector('.prev-next .prev a');
+      var nextLink = document.querySelector('.prev-next .next a');
+      if (prevLink || nextLink) {
+        var navSep = document.createElement('li');
+        navSep.className = 'sidebar-article-item';
+        navSep.style.cssText = 'border-top:1px solid rgba(15,23,42,0.08);margin-top:6px;padding-top:8px;pointer-events:none;';
+        navSep.innerHTML = '<div class="sidebar-article-title" style="font-size:0.78rem;color:var(--sal-meta)">相邻文章</div>';
+        navUl.appendChild(navSep);
+
+        if (prevLink) {
+          var prevLi = document.createElement('li');
+          prevLi.className = 'sidebar-article-item';
+          prevLi.innerHTML = '<div class="sidebar-article-title"><i class="fa-solid fa-angle-left" style="margin-right:4px;font-size:0.75rem"></i>' + prevLink.textContent.trim() + '</div>';
+          prevLi.addEventListener('click', function() { window.location.href = prevLink.href; });
+          navUl.appendChild(prevLi);
+        }
+        if (nextLink) {
+          var nextLi = document.createElement('li');
+          nextLi.className = 'sidebar-article-item';
+          nextLi.innerHTML = '<div class="sidebar-article-title"><i class="fa-solid fa-angle-right" style="margin-right:4px;font-size:0.75rem"></i>' + nextLink.textContent.trim() + '</div>';
+          nextLi.addEventListener('click', function() { window.location.href = nextLink.href; });
+          navUl.appendChild(nextLi);
+        }
+      }
+
+      navWidget.appendChild(navUl);
+      sidebarContainer.insertBefore(navWidget, sidebarContainer.firstChild);
       return;
     }
     document.body.classList.add('doc-index-layout');

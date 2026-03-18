@@ -1628,7 +1628,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1773799927101),
+    lastupdate: new Date(1773800554269),
     sidebar: {
       for_page: [],
       for_post: ["toc"],
@@ -3314,10 +3314,44 @@ AI领域发展迅速，2025年各领域有明确领先者，但竞争激烈，�
     }, 300000);
   }
 
+  // === 侧栏滚动淡出 ===
+  var scrollTicking = false;
+  function setupSidebarScrollFade() {
+    function updateFade() {
+      var sidebar = document.querySelector('.sidebar-article-list');
+      if (!sidebar) return;
+      var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+      // 120px 内完全可见 → 120~280px 逐渐淡出
+      if (scrollY <= 120) {
+        sidebar.style.opacity = '1';
+        sidebar.style.transform = '';
+        sidebar.style.pointerEvents = '';
+      } else if (scrollY >= 280) {
+        sidebar.style.opacity = '0';
+        sidebar.style.transform = 'translateY(-8px)';
+        sidebar.style.pointerEvents = 'none';
+      } else {
+        var ratio = 1 - (scrollY - 120) / 160;
+        sidebar.style.opacity = ratio.toFixed(2);
+        sidebar.style.transform = 'translateY(' + (-(1 - ratio) * 8).toFixed(1) + 'px)';
+        sidebar.style.pointerEvents = ratio < 0.2 ? 'none' : '';
+      }
+      scrollTicking = false;
+    }
+    window.addEventListener('scroll', function() {
+      if (!scrollTicking) {
+        scrollTicking = true;
+        requestAnimationFrame(updateFade);
+      }
+    }, { passive: true });
+    updateFade();
+  }
+
   function init() {
     fixNavbar();
     buildSidebar();
     setupBackground();
+    setupSidebarScrollFade();
   }
 
   if (document.readyState === 'loading') {

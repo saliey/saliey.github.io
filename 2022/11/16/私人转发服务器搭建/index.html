@@ -1628,7 +1628,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1774426914876),
+    lastupdate: new Date(1774429587538),
     sidebar: {
       for_page: [],
       for_post: ["toc"],
@@ -2850,6 +2850,14 @@ ssh 进入服务器：.# apt-get install redir.# sudo iptables -A INPUT -p tcp �
 (function() {
   'use strict';
   var currentObserver = null;
+  var mermaidLoadPromise = null;
+  var mermaidRenderCounter = 0;
+  var mermaidThemeName = null;
+  var mermaidScriptCandidates = [
+    'https://gcore.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js',
+    'https://unpkg.com/mermaid@10/dist/mermaid.min.js',
+    'https://unpkg.com/mermaid@10/dist/mermaid.min.js'
+  ];
 
   function disconnectObserver() {
     if (currentObserver) {
@@ -2865,6 +2873,192 @@ ssh 进入服务器：.# apt-get install redir.# sudo iptables -A INPUT -p tcp �
     window.scrollTo({
       top: Math.max(0, top),
       behavior: 'smooth'
+    });
+  }
+
+  function getMermaidBlocks() {
+    return Array.prototype.slice.call(document.querySelectorAll('#post-body pre.mermaid, .article-entry pre.mermaid'));
+  }
+
+  function getMermaidTheme() {
+    if (document.documentElement.hasAttribute('data-dark-mode') || document.body.classList.contains('dark')) {
+      return 'dark';
+    }
+    return 'neutral';
+  }
+
+  function loadMermaidScriptFrom(urls, index) {
+    if (window.mermaid) {
+      return Promise.resolve(window.mermaid);
+    }
+
+    if (index >= urls.length) {
+      return Promise.reject(new Error('Unable to load Mermaid from any configured source.'));
+    }
+
+    return new Promise(function(resolve, reject) {
+      var script = document.createElement('script');
+      script.src = urls[index];
+      script.async = true;
+      script.setAttribute('data-sal-mermaid-src', urls[index]);
+      script.onload = function() {
+        if (window.mermaid) {
+          resolve(window.mermaid);
+          return;
+        }
+        reject(new Error('Mermaid script loaded but window.mermaid is unavailable.'));
+      };
+      script.onerror = function() {
+        script.remove();
+        reject(new Error('Failed to load Mermaid from ' + urls[index]));
+      };
+      document.head.appendChild(script);
+    }).catch(function() {
+      return loadMermaidScriptFrom(urls, index + 1);
+    });
+  }
+
+  function loadMermaidScript() {
+    if (window.mermaid) {
+      return Promise.resolve(window.mermaid);
+    }
+
+    if (!mermaidLoadPromise) {
+      mermaidLoadPromise = loadMermaidScriptFrom(mermaidScriptCandidates, 0).catch(function(error) {
+        mermaidLoadPromise = null;
+        throw error;
+      });
+    }
+
+    return mermaidLoadPromise;
+  }
+
+  function ensureMermaidConfigured() {
+    return loadMermaidScript().then(function(mermaid) {
+      var theme = getMermaidTheme();
+      if (mermaidThemeName !== theme) {
+        mermaid.initialize({
+          startOnLoad: false,
+          securityLevel: 'loose',
+          theme: theme,
+          flowchart: {
+            htmlLabels: true,
+            useMaxWidth: false
+          },
+          sequence: {
+            useMaxWidth: false
+          },
+          gantt: {
+            useMaxWidth: false
+          }
+        });
+        mermaidThemeName = theme;
+      }
+      return mermaid;
+    });
+  }
+
+  function renderMermaid(mermaid, renderId, source) {
+    try {
+      return Promise.resolve(mermaid.render(renderId, source));
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  }
+
+  function setMermaidError(wrapper, message) {
+    var errorEl = wrapper.querySelector('.mermaid-error');
+    if (!errorEl) {
+      errorEl = document.createElement('p');
+      errorEl.className = 'mermaid-error';
+      wrapper.insertBefore(errorEl, wrapper.firstChild);
+    }
+    errorEl.textContent = message;
+  }
+
+  function clearMermaidError(wrapper) {
+    var errorEl = wrapper.querySelector('.mermaid-error');
+    if (errorEl) {
+      errorEl.remove();
+    }
+  }
+
+  function renderMermaidBlock(mermaid, block) {
+    var wrapper = block.parentElement;
+    if (!wrapper) {
+      return Promise.resolve();
+    }
+
+    var state = wrapper.getAttribute('data-mermaid-state');
+    if (state === 'rendering' || state === 'rendered') {
+      return Promise.resolve();
+    }
+
+    var source = block.textContent.trimEnd();
+    if (!source) {
+      return Promise.resolve();
+    }
+
+    wrapper.setAttribute('data-mermaid-state', 'rendering');
+    wrapper.classList.remove('is-error');
+    clearMermaidError(wrapper);
+
+    var renderTarget = wrapper.querySelector('.mermaid-render');
+    if (!renderTarget) {
+      renderTarget = document.createElement('div');
+      renderTarget.className = 'mermaid-render';
+      wrapper.appendChild(renderTarget);
+    }
+
+    var renderId = 'sal-mermaid-' + (++mermaidRenderCounter);
+
+    return renderMermaid(mermaid, renderId, source).then(function(result) {
+      var svg = result && result.svg ? result.svg : result;
+      if (!svg) {
+        throw new Error('Mermaid returned empty output.');
+      }
+
+      renderTarget.innerHTML = svg;
+      if (result && typeof result.bindFunctions === 'function') {
+        result.bindFunctions(renderTarget);
+      }
+
+      block.hidden = true;
+      wrapper.setAttribute('data-mermaid-state', 'rendered');
+      wrapper.classList.add('is-rendered');
+      return true;
+    }).catch(function(error) {
+      renderTarget.innerHTML = '';
+      block.hidden = false;
+      wrapper.setAttribute('data-mermaid-state', 'error');
+      wrapper.classList.remove('is-rendered');
+      wrapper.classList.add('is-error');
+      setMermaidError(wrapper, 'Mermaid 图表渲染失败，已保留源码。');
+      console.warn('sal-mermaid render failed:', error);
+      return false;
+    });
+  }
+
+  function initMermaid() {
+    var blocks = getMermaidBlocks();
+    if (!blocks.length) {
+      return;
+    }
+
+    ensureMermaidConfigured().then(function(mermaid) {
+      return Promise.all(blocks.map(function(block) {
+        return renderMermaidBlock(mermaid, block);
+      }));
+    }).catch(function(error) {
+      blocks.forEach(function(block) {
+        var wrapper = block.parentElement;
+        if (!wrapper) return;
+        wrapper.setAttribute('data-mermaid-state', 'error');
+        wrapper.classList.add('is-error');
+        block.hidden = false;
+        setMermaidError(wrapper, 'Mermaid 资源加载失败，当前显示源码。');
+      });
+      console.warn('sal-mermaid load failed:', error);
     });
   }
 
@@ -3329,6 +3523,7 @@ ssh 进入服务器：.# apt-get install redir.# sudo iptables -A INPUT -p tcp �
   function init() {
     fixNavbar();
     buildSidebar();
+    initMermaid();
     setupBackground();
     setupSidebarScrollFade();
   }

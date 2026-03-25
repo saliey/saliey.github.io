@@ -7355,6 +7355,53 @@ html {
 #post #post-body h3 {
   color: var(--sal-text-strong);
 }
+#post #post-body .mermaid-block {
+  margin: 1.25rem 0;
+  padding: 14px 16px;
+  border: 1px solid rgba(15,23,42,0.08);
+  border-radius: 14px;
+  -webkit-border-radius: 14px;
+  background: rgba(255,255,255,0.42);
+  overflow-x: auto;
+}
+#post #post-body .mermaid-block pre.mermaid {
+  margin: 0;
+  white-space: pre;
+  word-break: normal;
+  overflow-x: auto;
+}
+#post #post-body .mermaid-block.is-rendered pre.mermaid {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+}
+#post #post-body .mermaid-render {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: inline-block;
+}
+#post #post-body .mermaid-render svg {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  height: auto;
+  max-width: none;
+}
+#post #post-body .mermaid-error {
+  margin: 0 0 10px;
+  color: #b45309;
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+[data-dark-mode] #post #post-body .mermaid-block,
+.dark #post #post-body .mermaid-block {
+  background: rgba(15,23,42,0.38);
+  border-color: rgba(148,163,184,0.18);
+}
+[data-dark-mode] #post #post-body .mermaid-error,
+.dark #post #post-body .mermaid-error {
+  color: #fbbf24;
+}
 @media screen and (max-width: 1024px) {
   .sal-home-track #l_side {
     width: 180px;
